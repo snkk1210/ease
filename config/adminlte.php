@@ -255,6 +255,13 @@ return [
             //'label'       => 4,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Make Playbook',
+            'url'         => 'make',
+            'icon'        => 'far fa-fw fa-file',
+            //'label'       => 4,
+            'label_color' => 'success',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -263,9 +270,10 @@ return [
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => 'changepassword',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        /*
         [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
@@ -304,6 +312,7 @@ return [
                 ],
             ],
         ],
+        
         ['header' => 'labels'],
         [
             'text'       => 'important',
@@ -320,7 +329,9 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+        */
     ],
+    
 
     /*
     |--------------------------------------------------------------------------
