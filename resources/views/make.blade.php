@@ -11,6 +11,39 @@
 <!-- ページの内容を入力 -->
 @section('content')
     <p>Make Playbook.</p>
+
+    <form action="/matter_create" method="POST">
+                        @csrf
+                        @method('POST')
+                        <div class="table-responsive">
+                        <table id="matterTable" class="table table-striped table-bordered table-sm">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th class="text-nowrap">playbook名</th>
+                            <th class="text-nowrap">有効</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td><input type="text" name="matter_name" class="form-control" style="width:300px;" /></td>
+                            <td>
+                                <select name="records_type" id="model" class="form-control">
+                                    <option value="0">有効</option>
+                                    <option value="1">無効</option>
+                                </select>   
+                            </td>
+                        </tbody>
+                        </table>
+                        </div>
+                        <label for="textarea1">private_key:</label>
+                        <textarea name="private_key" class="form-control"></textarea>
+                        <label for="textarea1">inventory:</label>
+                        <textarea name="inventory" class="form-control"></textarea>
+                        <label for="textarea1">vars:</label>
+                        <textarea name="vars" class="form-control"></textarea>
+                        <label for="textarea1">main:</label>
+                        <textarea name="main" class="form-control"></textarea>
+                        <input type="submit" value="作成" class="btn btn-success">
+    </form>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
