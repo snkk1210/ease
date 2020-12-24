@@ -35,20 +35,20 @@
                         </table>
                         </div>
                         <label for="textarea1">private_key:</label>
-                        <textarea name="private_key" class="form-control"></textarea>
+                        <textarea class="form-control" rows="10" name="private_key" class="form-control"></textarea>
                         <label for="textarea1">inventory:</label>
-                        <textarea name="inventory" class="form-control"></textarea>
+                        <textarea class="form-control" rows="10" name="inventory" class="form-control"></textarea>
                         <label for="textarea1">vars:</label>
-                        <textarea name="vars" class="form-control"></textarea>
+                        <textarea class="form-control" rows="10" name="vars" class="form-control"></textarea>
                         <label for="textarea1">main:</label>
-                        <textarea name="main" class="form-control"></textarea>
+                        <textarea class="form-control" rows="10" name="main" class="form-control"></textarea>
                         <input type="submit" value="作成" class="btn btn-success">
     </form>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/make.css">
 @stop
 
 <!-- 読み込ませるJSを入力 -->
