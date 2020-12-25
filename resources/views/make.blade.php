@@ -12,7 +12,7 @@
 @section('content')
     <p>Make Playbook.</p>
 
-    <form action="/matter_create" method="POST">
+    <form action="/register_playbook" method="POST">
                         @csrf
                         @method('POST')
                         <div class="table-responsive">

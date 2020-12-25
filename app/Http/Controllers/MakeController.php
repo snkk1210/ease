@@ -10,7 +10,7 @@ class MakeController extends Controller
         return view('make');
     }
 
-    public function create(){
+    public function register(){
         //
     }
     
