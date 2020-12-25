@@ -20,13 +20,15 @@
                         <thead class="thead-dark">
                             <tr>
                             <th class="text-nowrap">playbook名</th>
+                            <th class="text-nowrap">レポジトリ名</th>
                             <th class="text-nowrap">有効</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <td><input type="text" name="matter_name" class="form-control" style="width:300px;" /></td>
+                            <td><input type="text" name="name" class="form-control" style="width:300px;" /></td>
+                            <td><input type="text" name="repository" class="form-control" style="width:300px;" /></td>
                             <td>
-                                <select name="records_type" id="model" class="form-control">
+                                <select name="enable_flag" id="model" class="form-control">
                                     <option value="0">有効</option>
                                     <option value="1">無効</option>
                                 </select>   
