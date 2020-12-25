@@ -10,11 +10,11 @@ class Playbook extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'register',
+        'inventory',
         'main',
         'vars',
         'private_key',
-        'register',
-        'register',
+        'repository',
+        'enable_flag',
     ];
 }
