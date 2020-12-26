@@ -26,6 +26,7 @@ class Playbook extends Model
      */
     public function getArrayParams($target){
 
+        $this->id = $target[0]['id'];
         $this->name = $target[0]['name'];
         $this->inventory = $target[0]['inventory'];
         $this->main = $target[0]['main'];

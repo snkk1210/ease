@@ -44,6 +44,7 @@
                         <textarea class="form-control" rows="10" name="vars" class="form-control"><?php echo $edit_playbook['vars'] ?></textarea>
                         <label for="textarea1">main:</label>
                         <textarea class="form-control" rows="10" name="main" class="form-control"><?php echo $edit_playbook['main'] ?></textarea>
+                        <input type="hidden" name="id" value="<?php echo $edit_playbook['id'] ?>">
                         <input type="submit" value="更新" class="btn btn-success">
     </form>
 @stop

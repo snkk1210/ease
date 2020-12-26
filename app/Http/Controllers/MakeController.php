@@ -51,7 +51,15 @@ class MakeController extends Controller
      * @param  Request  $request
      */
     public function update(Request $request){
-        //
+        // repositoryに入力があるか判定
+        if (is_null($request->input('repository'))){
+            exit('repositoryに正しい値を入力して下さい');
+        }
+
+        // データ更新
+        Playbook::where('id', $request->input('id'))->update($request->except(['_token', '_method']));
+
+        return redirect('/playbooks');
     }
 
 }
