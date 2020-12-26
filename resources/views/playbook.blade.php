@@ -14,6 +14,7 @@ url: "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Japanese.json"
 });
 $('#playbookTable').DataTable({
   "pageLength": 100,
+  "dom": '<"top"i>rt<"bottom"flp><"clear">'
 });
 });
 </script>
@@ -31,12 +32,13 @@ $('#playbookTable').DataTable({
     <p>This is Playbooks.</p>
 
     <div class="table-responsive">
-    <table id="playbookTable" class="table table-striped table-bordered table-sm"　width="100%">
-    <thead class="thead-dark">
+    <table id="playbookTable" class="table table-striped table-bordered table-sm" width="100%">
+    <thead>
         <tr>
-            <th class="text-nowrap">name</th>
-            <th class="text-nowrap">repository</th>
-            <th class="text-nowrap">操作</th>
+            <th class="text-nowrap" width="25%">name</th>
+            <th class="text-nowrap" width="25%">repository</th>
+            <th class="text-nowrap" width="25%">編集</th>
+            <th class="text-nowrap" width="25%">実行</th>
         </tr>
     </thead>
     <tbody>
@@ -48,19 +50,31 @@ $('#playbookTable').DataTable({
                             <form action="/edit" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="データを更新" type="submit" value="編集" class="btn btn-success">
+                                <input title="編集" type="submit" value="編集" class="btn btn-success">
+                                <input type="hidden" name="id" value="{{ $playbook->id }}">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/exec" method="POST">
+                                @csrf
+                                @method('POST')
+                                <input title="実行" type="submit" value="実行" class="btn btn-success">
                                 <input type="hidden" name="id" value="{{ $playbook->id }}">
                             </form>
                         </td>
             </tr>
         @endforeach
     </tbody>
+    </table>
+    </div>
 
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
 @section('css')
-    <link rel="stylesheet" href="/css/app.css">
+
+<!--    <link rel="stylesheet" href="/css/app.css"> -->
+
 @stop
 
 <!-- 読み込ませるJSを入力 -->
