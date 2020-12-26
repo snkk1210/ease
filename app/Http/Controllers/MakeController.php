@@ -17,11 +17,16 @@ class MakeController extends Controller
      */
     public function register(Request $request){
 
-        // postデータを登録
-        $post = new Playbook();
-        $post->fill($request->all())->save();
+        // repositoryに入力があるか判定
+        if (is_null($request->input('repository'))){
+            exit('repositoryに正しい値を入力して下さい');
+        }
 
-        return view('home');
+        // 入力データを登録
+        $element = new Playbook();
+        $element->fill($request->all())->save();
+
+        return redirect('/playbooks');
     }
     
 }
