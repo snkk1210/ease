@@ -1,3 +1,4 @@
+<html style="zoom: 80%">
 @extends('adminlte::page')
 
 {{-- Datatable読み込み用 --}}
@@ -30,21 +31,27 @@ $('#playbookTable').DataTable({
     <p>This is Playbooks.</p>
 
     <div class="table-responsive">
-    <table id="playbookTable" class="table table-striped table-bordered table-sm" width="100%">
+    <table id="playbookTable" class="table table-striped table-bordered table-sm"　width="100%">
     <thead class="thead-dark">
         <tr>
             <th class="text-nowrap">name</th>
             <th class="text-nowrap">repository</th>
+            <th class="text-nowrap">操作</th>
         </tr>
     </thead>
-
-
-
     <tbody>
         @foreach($playbooks as $playbook)
             <tr>
-                <td>{{ optional($playbook)->name }}</td>
-                <td>{{ optional($playbook)->repository }}</td>
+                        <td>{{ optional($playbook)->name }}</td>
+                        <td>{{ optional($playbook)->repository }}</td>
+                        <td>
+                            <form action="/edit" method="POST">
+                                @csrf
+                                @method('POST')
+                                <input title="データを更新" type="submit" value="編集" class="btn btn-success">
+                                <input type="hidden" name="id" value="{{ $playbook->id }}">
+                            </form>
+                        </td>
             </tr>
         @endforeach
     </tbody>
