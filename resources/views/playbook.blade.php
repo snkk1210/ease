@@ -58,7 +58,7 @@ $('#playbookTable').DataTable({
                             <form action="/exec_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="実行" type="submit" value="実行" class="btn btn-success">
+                                <input title="実行" type="submit" value="実行" class="btn btn-danger">
                                 <input type="hidden" name="id" value="{{ $playbook->id }}">
                             </form>
                         </td>

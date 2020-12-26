@@ -34,3 +34,5 @@ Route::post('/register_playbook','App\Http\Controllers\MakeController@register')
 
 Route::post('/edit_playbook','App\Http\Controllers\MakeController@edit');
 Route::post('/update_playbook','App\Http\Controllers\MakeController@update');
+
+Route::post('/exec_playbook','App\Http\Controllers\MakeController@exec');

@@ -62,4 +62,21 @@ class MakeController extends Controller
         return redirect('/playbooks');
     }
 
+    /**
+     * playbook実行準備
+     * @param  Request  $request
+     */
+    public function exec(Request $request){
+        $id = $request->input('id');
+
+        $target_data = Playbook::where('id', $id)->get();
+
+        $playbook = new Playbook();
+        $playbook = $playbook->getArrayParams($target_data);
+
+        return view('exec', [
+            "playbook" => $playbook,
+        ]);
+    }
+
 }
