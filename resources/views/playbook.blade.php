@@ -1,4 +1,4 @@
-<html style="zoom: 80%">
+<!-- <html style="zoom: 80%"> -->
 @extends('adminlte::page')
 
 {{-- Datatable読み込み用 --}}
