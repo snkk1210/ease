@@ -31,3 +31,6 @@ Route::post('changepassword', 'App\Http\Controllers\ChangePasswdController@chang
 Route::get('/playbooks','App\Http\Controllers\PlayBookController@index');
 Route::get('/make','App\Http\Controllers\MakeController@index');
 Route::post('/register_playbook','App\Http\Controllers\MakeController@register');
+
+Route::post('/edit_playbook','App\Http\Controllers\MakeController@edit');
+Route::post('/update_playbook','App\Http\Controllers\MakeController@update');

@@ -47,7 +47,7 @@ $('#playbookTable').DataTable({
                         <td>{{ optional($playbook)->name }}</td>
                         <td>{{ optional($playbook)->repository }}</td>
                         <td>
-                            <form action="/edit" method="POST">
+                            <form action="/edit_playbook" method="POST">
                                 @csrf
                                 @method('POST')
                                 <input title="編集" type="submit" value="編集" class="btn btn-success">
@@ -55,7 +55,7 @@ $('#playbookTable').DataTable({
                             </form>
                         </td>
                         <td>
-                            <form action="/exec" method="POST">
+                            <form action="/exec_playbook" method="POST">
                                 @csrf
                                 @method('POST')
                                 <input title="実行" type="submit" value="実行" class="btn btn-success">

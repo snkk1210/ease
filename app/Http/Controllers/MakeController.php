@@ -29,4 +29,29 @@ class MakeController extends Controller
         return redirect('/playbooks');
     }
     
+    /**
+     * playbook編集
+     * @param  Request  $request
+     */
+    public function edit(Request $request){
+        $id = $request->input('id');
+
+        $target_data = Playbook::where('id', $id)->get();
+
+        $edit_playbook = new Playbook();
+        $edit_playbook = $edit_playbook->getArrayParams($target_data);
+
+        return view('edit', [
+            "edit_playbook" => $edit_playbook,
+        ]);
+    }
+
+    /**
+     * playbook更新
+     * @param  Request  $request
+     */
+    public function update(Request $request){
+        //
+    }
+
 }
