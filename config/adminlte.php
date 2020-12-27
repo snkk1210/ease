@@ -241,6 +241,7 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        /*
         [
             'text'        => 'pages',
             'url'         => 'admin/pages',
@@ -248,6 +249,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        */
         [
             'text'        => 'Playbooks',
             'url'         => 'playbooks',
