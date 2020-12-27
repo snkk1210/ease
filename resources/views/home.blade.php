@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
 <!-- ページタイトルを入力 -->
-@section('title', 'Dashboard')
+@section('title', 'Welcome!!')
 
 <!-- ページの見出しを入力 -->
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Welcome!!</h1>
 @stop
 
 <!-- ページの内容を入力 -->
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>←「Make Playbook」でplaybookを作成してね</p>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
