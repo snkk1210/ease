@@ -36,3 +36,6 @@ Route::post('/edit_playbook','App\Http\Controllers\MakeController@edit');
 Route::post('/update_playbook','App\Http\Controllers\MakeController@update');
 
 Route::post('/exec_playbook','App\Http\Controllers\MakeController@exec');
+
+Route::post('/dryrun_playbook','App\Http\Controllers\RunController@dryrun');
+Route::post('/run_playbook','App\Http\Controllers\RunController@run');
