@@ -19,8 +19,8 @@
                         <table id="matterTable" class="table table-striped table-bordered table-sm">
                         <thead class="thead-dark">
                             <tr>
-                            <th class="text-nowrap">playbook名</th>
-                            <th class="text-nowrap">レポジトリ名</th>
+                            <th class="text-nowrap">playbook</th>
+                            <th class="text-nowrap">repository</th>
                             <th class="text-nowrap">有効</th>
                             </tr>
                         </thead>
