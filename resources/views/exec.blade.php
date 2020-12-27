@@ -40,26 +40,41 @@
                         <textarea readonly class="form-control" rows="10" name="vars" class="form-control"><?php echo $playbook['vars'] ?></textarea>
                         <label for="textarea1">main:</label>
                         <textarea readonly class="form-control" rows="10" name="main" class="form-control"><?php echo $playbook['main'] ?></textarea>
+ 
+                        <div id="Loading" style="display:none;">
+                            <p class="loadmsg">実行中... <i id="icon" class="fas fa-sync fa-spin"></i></p>
+                        </div>
+ 
     <form action="/dryrun_playbook" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
-                        <input type="submit" value="ドライラン" class="btn btn-success">
+                        <input type="submit" value="ドライラン" class="btn btn-success" onclick="Form_Submit()">
     </form>
     <form action="/run_playbook" method="POST">
                         @csrf
                         @method('POST')
                         <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
-                        <input type="submit" value="実行" class="btn btn-danger">
+                        <input type="submit" value="実行" class="btn btn-danger" onclick="Form_Submit()">
     </form>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
 @section('css')
     <link rel="stylesheet" href="/css/make.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
 @stop
 
 <!-- 読み込ませるJSを入力 -->
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+    document.getElementById("icon").style.display ="none";
+    /*実行ボタン押下時の関数*/
+    function Form_Submit(){
+        document.getElementById("Loading").style.display = "block";  
+        document.getElementById("icon").style.display ="";
+        document.getElementById("Loading").style.top = 150
+        document.getElementById("Loading").style.left = (document.body.clientWidth - 300) / 2;
+    }
+    </script>
 @stop
