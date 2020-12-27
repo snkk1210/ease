@@ -22,12 +22,14 @@ class RunController extends Controller
         Storage::prepend("$dir/main.yml", $playbook['main']);
         Storage::prepend("$dir/private.pem", $playbook['private_key']);
 
-        $chmod_key = "cd ../storage/app/$dir && chmod 600 $private_key";
-        $run_ansible = "cd ../storage/app/$dir && ansible-playbook -i $host $main --private-key=$private_key";
+        $chmod_key = "cd ../storage/app/$dir && chmod 600 private.pem";
+        $run_ansible = "cd ../storage/app/$dir && ansible-playbook -i host main.yml --private-key=private.pem 2>&1";
 
-        exec($chmod_key, $chmod_key_res, $chmod_key_return);
-        exec($run_ansible, $run_ansible_res, $run_ansible_return);
-        return $run_ansible_res;
+        exec($chmod_key, $chmod_key_output, $chmod_key_return);
+        exec($run_ansible, $run_ansible_output, $run_ansible_return);
+
+        Storage::delete(["$dir/host", "$dir/group_vars/all.yml", "$dir/main.yml", "$dir/private.pem"]);
+        return $run_ansible_output;
 
     }
 
