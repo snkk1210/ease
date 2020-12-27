@@ -79,4 +79,14 @@ class MakeController extends Controller
         ]);
     }
 
+    /**
+     * playbook削除
+     * @param  Request  $request
+     */
+    public function remove(Request $request){
+        Playbook::where('id', $request->input('id'))->delete($request->except(['_token', '_method']));
+        return redirect('/playbooks');
+
+    }
+
 }

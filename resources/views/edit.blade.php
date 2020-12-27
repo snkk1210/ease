@@ -47,6 +47,12 @@
                         <input type="hidden" name="id" value="<?php echo $edit_playbook['id'] ?>">
                         <input type="submit" value="更新" class="btn btn-success">
     </form>
+    <form action="/remove_playbook" method="POST">
+                        @csrf
+                        @method('POST')
+                        <input type="hidden" name="id" value="<?php echo $edit_playbook['id'] ?>">
+                        <input type="submit" value="削除" class="btn btn-danger" onClick="delete_alert(event);return false;">
+    </form>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
@@ -56,5 +62,13 @@
 
 <!-- 読み込ませるJSを入力 -->
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script>
+function delete_alert(e){
+   if(!window.confirm('本当に削除しますか？')){
+      window.alert('キャンセルされました'); 
+      return false;
+   }
+   document.deleteform.submit();
+};
+</script>
 @stop
