@@ -64,18 +64,23 @@ DB_PASSWORD=xxxx
 php artisan migrate
 ```
 
-### 5.権限変更
+### 5.APP_KEY の生成
+
+```
+php artisan key:generate
+```
+
+### 6.権限変更
 
 ```
 chmod -R 777 storage
 ```
 
-### 6.デフォルトplaybook取得
+### 7.デフォルトplaybook取得
 
 ```
 cd storage/app
 git clone https://github.com/keisukesanuki/default-CentOS7.git
 chown [webユーザ]:[webグループ] default-CentOS7
-chown [webユーザ]:[webグループ] default-CentOS7/
 chown [webユーザ]:[webグループ] default-CentOS7/group_vars
 ```
