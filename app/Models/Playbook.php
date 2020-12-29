@@ -40,11 +40,18 @@ class Playbook extends Model
     }
 
     /**
-     * playbook実行前の所有者認証
+     * playbook実行前の認証
      * @param  $user_id, $playbook_id
      */
     public static function authRun($user_id, $playbook_id){
-        if (!($user_id->id == $playbook_id[0]['owner_id'])){
+        # システム管理者であれば認証を通す
+        if ($user_id->role == 1){
+            return 0;
+        # playbookの所有者であれば認証を通す
+        } elseif ($user_id->id == $playbook_id[0]['owner_id']){
+            return 0;
+        # それ以外は403エラー
+        } else {
             abort(403, 'Forbidden');
             header('Location: /home', true, 403);
             exit();
