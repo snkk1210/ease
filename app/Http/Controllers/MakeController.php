@@ -40,7 +40,10 @@ class MakeController extends Controller
     public function edit(Request $request){
         $id = $request->input('id');
 
+        # 実行ユーザで認証処理
         $target_data = Playbook::where('id', $id)->get();
+        $user = Auth::user();
+        Playbook::authRun($user, $target_data);
 
         $edit_playbook = new Playbook();
         $edit_playbook = $edit_playbook->getArrayParams($target_data);
@@ -55,12 +58,17 @@ class MakeController extends Controller
      * @param  Request  $request
      */
     public function update(Request $request){
-        // repositoryに入力があるか判定
+        # 実行ユーザで認証処理
+        $target_data = Playbook::where('id', $request->input('id'))->get();
+        $user = Auth::user();
+        Playbook::authRun($user, $target_data);
+
+        # repositoryに入力があるか判定
         if (is_null($request->input('repository'))){
             exit('repositoryに正しい値を入力して下さい');
         }
 
-        // データ更新
+        # データ更新
         Playbook::where('id', $request->input('id'))->update($request->except(['_token', '_method']));
 
         return redirect('/playbooks');
@@ -73,7 +81,10 @@ class MakeController extends Controller
     public function exec(Request $request){
         $id = $request->input('id');
 
+        # 実行ユーザで認証処理
         $target_data = Playbook::where('id', $id)->get();
+        $user = Auth::user();
+        Playbook::authRun($user, $target_data);
 
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
@@ -88,6 +99,11 @@ class MakeController extends Controller
      * @param  Request  $request
      */
     public function remove(Request $request){
+        # 実行ユーザで認証処理
+        $target_data = Playbook::where('id', $request->input('id'))->get();
+        $user = Auth::user();
+        Playbook::authRun($user, $target_data);
+
         Playbook::where('id', $request->input('id'))->delete($request->except(['_token', '_method']));
         return redirect('/playbooks');
 
