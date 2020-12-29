@@ -84,3 +84,18 @@ git clone https://github.com/keisukesanuki/default-CentOS7.git
 chown [webユーザ]:[webグループ] default-CentOS7
 chown [webユーザ]:[webグループ] default-CentOS7/group_vars
 ```
+
+### 8.初期ユーザ作成
+
+```
+mysql -u root -p
+use [スキーマ];
+INSERT INTO `users` (name, email, password)VALUES ('admin','admin@localhost','$2y$10$/pJ6PJyEg9/7uos9dkPqPehVH5XpD.cAxopu8Kt4x1N2a.4yloKVS');
+```
+
+### 9.初期ユーザでログイン
+
+```
+ID: admin@localhost
+PASSWORD: easeease 
+```
