@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Playbook;
+use Illuminate\Support\Facades\Auth;
 
 class RunController extends Controller
 {
@@ -15,6 +16,10 @@ class RunController extends Controller
     public function run(Request $request){
         $id = $request->input('id');
         $target_data = Playbook::where('id', $id)->get();
+
+        # 実行ユーザで認証処理
+        $user = Auth::user();
+        Playbook::authRun($user, $target_data);
 
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
@@ -60,6 +65,10 @@ class RunController extends Controller
     public function dryrun(Request $request){
         $id = $request->input('id');
         $target_data = Playbook::where('id', $id)->get();
+
+        # 実行ユーザで認証処理
+        $user = Auth::user();
+        Playbook::authRun($user, $target_data);
 
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
