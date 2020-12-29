@@ -45,6 +45,7 @@ class Playbook extends Model
      */
     public static function authRun($user_id, $playbook_id){
         if (!($user_id->id == $playbook_id[0]['owner_id'])){
+            abort(403, 'Forbidden');
             header('Location: /home', true, 403);
             exit();
         }
