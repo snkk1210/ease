@@ -37,21 +37,23 @@ $('#playbookTable').DataTable({
         <tr>
             <th class="text-nowrap" width="25%">playbook</th>
             <th class="text-nowrap" width="25%">repository</th>
-            <th class="text-nowrap" width="25%">編集</th>
-            <th class="text-nowrap" width="25%">実行</th>
+            <th class="text-nowrap" width="30%">owner</th>
+            <th class="text-nowrap" width="10%">編集</th>
+            <th class="text-nowrap" width="10%">実行</th>
         </tr>
     </thead>
     <tbody>
         @foreach($playbooks as $playbook)
             <tr>
-                        <td>{{ optional($playbook)->name }}</td>
+                        <td>{{ optional($playbook)->playbooks_name }}</td>
                         <td>{{ optional($playbook)->repository }}</td>
+                        <td>{{ optional($playbook)->name }}</td>
                         <td>
                             <form action="/edit_playbook" method="POST">
                                 @csrf
                                 @method('POST')
                                 <input title="編集" type="submit" value="編集" class="btn btn-success">
-                                <input type="hidden" name="id" value="{{ $playbook->id }}">
+                                <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
                         <td>
@@ -59,7 +61,7 @@ $('#playbookTable').DataTable({
                                 @csrf
                                 @method('POST')
                                 <input title="実行" type="submit" value="実行" class="btn btn-danger">
-                                <input type="hidden" name="id" value="{{ $playbook->id }}">
+                                <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
             </tr>
