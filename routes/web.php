@@ -21,7 +21,9 @@ Route::get('/', function () {
 
 // ログイン用ルーティング
 Route::redirect('/', '/login');
-Auth::routes();
+Auth::routes([
+    'register' => false,
+]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // 認証が必要なルーティング
@@ -30,6 +32,10 @@ Route::group(['middleware' => ['auth']], function () {
     // パスワード更新
     Route::get('changepassword', 'App\Http\Controllers\ChangePasswdController@showChangePasswordForm');
     Route::post('changepassword', 'App\Http\Controllers\ChangePasswdController@changePassword')->name('changepassword');
+    // ユーザ登録
+    Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
+    Route::post('register', 'App\Http\Controllers\Auth\RegisterController@register');
+
     // ログインユーザのプロファイル
     Route::get('/profile','App\Http\Controllers\ProfileController@index');
     // playbook周り
@@ -45,4 +51,5 @@ Route::group(['middleware' => ['auth']], function () {
     // playbook削除
     Route::post('/remove_playbook','App\Http\Controllers\MakeController@remove');
 
+    
 });

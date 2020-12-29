@@ -276,6 +276,11 @@ return [
             'url'  => 'changepassword',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        [
+            'text' => 'Register a new membership',
+            'url'  => 'register',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
         /*
         [
             'text'    => 'multilevel',
