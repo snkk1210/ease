@@ -16,7 +16,7 @@
                         @csrf
                         @method('POST')
                         <div class="table-responsive">
-                        <table id="matterTable" class="table table-striped table-bordered table-sm">
+                        <table class="table table-striped table-bordered table-sm">
                         <thead class="thead-dark">
                             <tr>
                             <th class="text-nowrap">playbook</th>
@@ -44,6 +44,7 @@
                         <textarea class="form-control" rows="10" name="vars" class="form-control"></textarea>
                         <label for="textarea1">main:</label>
                         <textarea class="form-control" rows="10" name="main" class="form-control"></textarea>
+                        <input type="hidden" name="owner_id" value="{{ $owner_id }}">
                         <input type="submit" value="作成" class="btn btn-success">
     </form>
 @stop

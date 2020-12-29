@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Playbook;
+use Illuminate\Support\Facades\Auth;
 
 class MakeController extends Controller
 {
     public function index(){
-        return view('make');
+        $user = Auth::user();
+        return view('make', [
+            "owner_id" => $user->id,
+        ]);
     }
 
     /**

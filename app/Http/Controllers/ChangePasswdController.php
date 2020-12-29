@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 class ChangePasswdController extends Controller

@@ -19,6 +19,7 @@ class Playbook extends Model
         'private_key',
         'repository',
         'enable_flag',
+        'owner_id',
     ];
 
     /**
