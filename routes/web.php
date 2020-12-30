@@ -41,10 +41,14 @@ Route::group(['middleware' => ['auth']], function () {
 
     // ログインユーザのプロファイル
     Route::get('/profile','App\Http\Controllers\ProfileController@index');
+
     // playbook周り
+    Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
+        // playbook登録
+        Route::post('/register_playbook','App\Http\Controllers\MakeController@register');
+    });
     Route::get('/playbooks','App\Http\Controllers\PlayBookController@index');
     Route::get('/make','App\Http\Controllers\MakeController@index');
-    Route::post('/register_playbook','App\Http\Controllers\MakeController@register');
     Route::post('/edit_playbook','App\Http\Controllers\MakeController@edit');
     Route::post('/update_playbook','App\Http\Controllers\MakeController@update');
     // playbook実行

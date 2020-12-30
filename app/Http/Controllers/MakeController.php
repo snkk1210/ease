@@ -43,7 +43,7 @@ class MakeController extends Controller
         # 実行ユーザで認証処理
         $target_data = Playbook::where('id', $id)->get();
         $user = Auth::user();
-        Playbook::authRun($user, $target_data);
+        Playbook::authView($user, $target_data);
 
         $edit_playbook = new Playbook();
         $edit_playbook = $edit_playbook->getArrayParams($target_data);
@@ -84,7 +84,7 @@ class MakeController extends Controller
         # 実行ユーザで認証処理
         $target_data = Playbook::where('id', $id)->get();
         $user = Auth::user();
-        Playbook::authRun($user, $target_data);
+        Playbook::authView($user, $target_data);
 
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
