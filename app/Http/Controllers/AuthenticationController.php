@@ -45,7 +45,7 @@ class AuthenticationController extends Controller
         $element = new Authentication();
         $element->fill($request->all())->save();
 
-        return redirect('/playbooks');
+        return redirect('/auths');
     }
 
     /**
@@ -55,6 +55,11 @@ class AuthenticationController extends Controller
     public function edit(Request $request){
         $id = $request->input('id');
         $target_data = Authentication::where('id', $id)->get();
+
+        # 実行ユーザで認証処理
+        $user = Auth::user();
+        Authentication::authView($user, $target_data);
+
 
         $edit_auth = new Authentication();
         $edit_auth = $edit_auth->getArrayParams($target_data);
@@ -69,6 +74,11 @@ class AuthenticationController extends Controller
      * @param  Request  $request
      */
     public function update(Request $request){
+        # 実行ユーザで認証処理
+        $target_data = Authentication::where('id', $request->input('id'))->get();
+        $user = Auth::user();
+        Authentication::authRun($user, $target_data);
+
         # データ更新
         Authentication::where('id', $request->input('id'))->update($request->except(['_token', '_method']));
 
@@ -80,6 +90,11 @@ class AuthenticationController extends Controller
      * @param  Request  $request
      */
     public function remove(Request $request){
+        # 実行ユーザで認証処理
+        $target_data = Authentication::where('id', $request->input('id'))->get();
+        $user = Auth::user();
+        Authentication::authRun($user, $target_data);
+
         Authentication::where('id', $request->input('id'))->delete($request->except(['_token', '_method']));
         return redirect('/auths');
     }
