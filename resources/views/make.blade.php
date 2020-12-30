@@ -21,17 +21,24 @@
                             <tr>
                             <th class="text-nowrap">playbook</th>
                             <th class="text-nowrap">repository</th>
-                            <th class="text-nowrap">有効</th>
+                            <th class="text-nowrap">認証</th>
                             </tr>
                         </thead>
                         <tbody>
                             <td><input type="text" name="name" class="form-control" style="width:300px;" /></td>
                             <td><input type="text" value= "default-CentOS7" name="repository" class="form-control" style="width:300px;" /></td>
                             <td>
+                            <!--
                                 <select name="enable_flag" id="model" class="form-control">
                                     <option value="0">有効</option>
                                     <option value="1">無効</option>
-                                </select>   
+                                </select>
+                            -->
+                            <select name="auth_id" id="model" class="form-control">
+                            @foreach($authes as $index => $name)
+                                <option value="{{ $name->id }}"><?php echo $name->auth_name ?></option>
+                            @endforeach
+                            </select>
                             </td>
                         </tbody>
                         </table>

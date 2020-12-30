@@ -265,6 +265,20 @@ return [
             //'label'       => 4,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Authentications',
+            'url'         => 'auths',
+            'icon'        => 'far fa-fw fa-file',
+            //'label'       => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Make Auth',
+            'url'         => 'auth',
+            'icon'        => 'far fa-fw fa-file',
+            //'label'       => 4,
+            'label_color' => 'success',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

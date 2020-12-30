@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Authentication;
 
 class Playbook extends Model
 {
     use HasFactory;
-
-    
 
     protected $fillable = [
         'name',
@@ -20,6 +19,7 @@ class Playbook extends Model
         'repository',
         'enable_flag',
         'owner_id',
+        'auth_id',
     ];
 
     /**
@@ -35,6 +35,7 @@ class Playbook extends Model
         $this->private_key = $target[0]['private_key'];
         $this->repository = $target[0]['repository'];
         $this->enable_flag = $target[0]['enable_flag'];
+        $this->auth_id = $target[0]['auth_id'];
 
         return $this;
     }
@@ -75,6 +76,21 @@ class Playbook extends Model
             header('Location: /home', true, 403);
             exit();
         }
+    }
+
+    /**
+     * playbook作成時の認証一覧表示
+     * @param $user
+     */
+    public static function getAuthList($user){
+        # システム管理者,またはread権限者であれば全認証情報を返す
+        if ($user->role == 1 || $user->role == 15){
+            $auths = Authentication::all();
+        # それ以外は所有物だけ返す
+        } else {
+            $auths = Authentication::where('a_owner_id', $user->id)->get();
+        }
+        return $auths;
     }
 
 
