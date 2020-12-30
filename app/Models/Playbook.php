@@ -58,4 +58,24 @@ class Playbook extends Model
         }
     }
 
+    /**
+     * playbook閲覧前の認証
+     * @param  $user_id, $playbook_id
+     */
+    public static function authView($user_id, $playbook_id){
+        # システム管理者,またはread権限者であれば認証を通す
+        if ($user_id->role == 1 || $user_id->role == 15){
+            return 0;
+        # playbookの所有者であれば認証を通す
+        } elseif ($user_id->id == $playbook_id[0]['owner_id']){
+            return 0;
+        # それ以外は403エラー
+        } else {
+            abort(403, 'Forbidden');
+            header('Location: /home', true, 403);
+            exit();
+        }
+    }
+
+
 }

@@ -91,11 +91,17 @@ chown [webユーザ]:[webグループ] default-CentOS7/group_vars
 mysql -u root -p
 use [スキーマ];
 INSERT INTO `users` (name, email, password, role)VALUES ('admin','admin@localhost','$2y$10$/pJ6PJyEg9/7uos9dkPqPehVH5XpD.cAxopu8Kt4x1N2a.4yloKVS', 1);
+INSERT INTO `users` (name, email, password, role)VALUES ('read-only','read@localhost','$2y$10$/pJ6PJyEg9/7uos9dkPqPehVH5XpD.cAxopu8Kt4x1N2a.4yloKVS', 15);
 ```
 
 ### 9.初期ユーザでログイン
-
+- 管理者ユーザ
 ```
 ID: admin@localhost
+PASSWORD: easeease 
+```
+- read-onlyユーザ
+```
+ID: read@localhost
 PASSWORD: easeease 
 ```
