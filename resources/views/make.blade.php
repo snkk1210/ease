@@ -36,7 +36,7 @@
                             -->
                             <select name="auth_id" id="model" class="form-control">
                             @foreach($authes as $index => $name)
-                                <option value="{{ $index }}"><?php echo $name->auth_name ?></option>
+                                <option value="{{ $name->id }}"><?php echo $name->auth_name ?></option>
                             @endforeach
                             </select>
                             </td>

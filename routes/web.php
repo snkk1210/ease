@@ -62,6 +62,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/exec_playbook','App\Http\Controllers\MakeController@exec');
     Route::post('/dryrun_playbook','App\Http\Controllers\RunController@dryrun');
     Route::post('/run_playbook','App\Http\Controllers\RunController@run');
+    Route::post('/dryrunpass_playbook','App\Http\Controllers\RunController@dryrunPasswd');
+    Route::post('/runpass_playbook','App\Http\Controllers\RunController@runPasswd');
     // playbook削除
     Route::post('/remove_playbook','App\Http\Controllers\MakeController@remove');
 

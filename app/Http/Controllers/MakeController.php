@@ -95,11 +95,14 @@ class MakeController extends Controller
         $user = Auth::user();
         Playbook::authView($user, $target_data);
 
+        $authes = Playbook::getAuthList($user);
+
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
 
         return view('exec', [
             "playbook" => $playbook,
+            "authes" => $authes,
         ]);
     }
 

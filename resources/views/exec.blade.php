@@ -17,17 +17,28 @@
                             <tr>
                             <th class="text-nowrap">playbook名</th>
                             <th class="text-nowrap">レポジトリ名</th>
-                            <th class="text-nowrap">有効</th>
+                            <th class="text-nowrap">認証</th>
                             </tr>
                         </thead>
                         <tbody>
                             <td><input readonly type="text" value="<?php echo $playbook['name'] ?>" name="name" class="form-control" style="width:300px;" /></td>
                             <td><input readonly type="text" value="<?php echo $playbook['repository'] ?>" name="repository" class="form-control" style="width:300px;" /></td>
                             <td>
+                            <!--
                                 <select readonly name="enable_flag" id="model" class="form-control">
                                     <option value="0">有効</option>
                                     <option value="1">無効</option>
-                                </select>   
+                                </select>
+                            -->
+                            <select readonly name="auth_id" id="model" class="form-control">
+                            @foreach($authes as $index => $name)
+                                @if ($name->id == $playbook['auth_id'])
+                                <option value="{{ $name->id }}" selected><?php echo $name->auth_name ?></option>
+                                @else
+                                <option value="{{ $name->id }}"><?php echo $name->auth_name ?></option>
+                                @endif
+                            @endforeach
+                            </select>     
                             </td>
                         </tbody>
                         </table>
@@ -56,6 +67,18 @@
                         @method('POST')
                         <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
                         <input type="submit" value="実行" class="btn btn-danger" onclick="Form_Submit()">
+    </form>
+    <form action="/dryrunpass_playbook" method="POST">
+                        @csrf
+                        @method('POST')
+                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
+                        <input type="submit" value="ドライラン(パスワード認証)" class="btn btn-success" onclick="Form_Submit()">
+    </form>
+    <form action="/runpass_playbook" method="POST">
+                        @csrf
+                        @method('POST')
+                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
+                        <input type="submit" value="実行(パスワード認証)" class="btn btn-danger" onclick="Form_Submit()">
     </form>
 @stop
 

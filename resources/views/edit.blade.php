@@ -36,10 +36,10 @@
                             -->
                             <select name="auth_id" id="model" class="form-control">
                             @foreach($authes as $index => $name)
-                                @if ($index == $edit_playbook['auth_id'])
-                                <option value="{{ $index }}" selected><?php echo $name->auth_name ?></option>
+                                @if ($name->id == $edit_playbook['auth_id'])
+                                <option value="{{ $name->id }}" selected><?php echo $name->auth_name ?></option>
                                 @else
-                                <option value="{{ $index }}"><?php echo $name->auth_name ?></option>
+                                <option value="{{ $name->id }}"><?php echo $name->auth_name ?></option>
                                 @endif
                             @endforeach
                             </select>   
