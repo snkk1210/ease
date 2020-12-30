@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Playbook;
+use App\Models\Authentication;
 use Illuminate\Support\Facades\Auth;
 
 class MakeController extends Controller
 {
     public function index(){
         $user = Auth::user();
+
+        $authes = Playbook::getAuthList($user);
+
+
         return view('make', [
             "owner_id" => $user->id,
+            "authes" => $authes,
         ]);
     }
 
@@ -45,11 +51,14 @@ class MakeController extends Controller
         $user = Auth::user();
         Playbook::authView($user, $target_data);
 
+        $authes = Playbook::getAuthList($user);
+
         $edit_playbook = new Playbook();
         $edit_playbook = $edit_playbook->getArrayParams($target_data);
 
         return view('edit', [
             "edit_playbook" => $edit_playbook,
+            "authes" => $authes,
         ]);
     }
 
