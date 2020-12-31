@@ -56,30 +56,26 @@
                             <p class="loadmsg">実行中... <i id="icon" class="fas fa-sync fa-spin"></i></p>
                         </div>
  
-    <form action="/dryrun_playbook" method="POST">
-                        @csrf
-                        @method('POST')
-                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
-                        <input type="submit" value="ドライラン" class="btn btn-success" onclick="Form_Submit()">
-    </form>
-    <form action="/run_playbook" method="POST">
-                        @csrf
-                        @method('POST')
-                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
-                        <input type="submit" value="実行" class="btn btn-danger" onclick="Form_Submit()">
-    </form>
-    <form action="/dryrunpass_playbook" method="POST">
-                        @csrf
-                        @method('POST')
-                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
-                        <input type="submit" value="ドライラン(パスワード認証)" class="btn btn-success" onclick="Form_Submit()">
-    </form>
-    <form action="/runpass_playbook" method="POST">
-                        @csrf
-                        @method('POST')
-                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
-                        <input type="submit" value="実行(パスワード認証)" class="btn btn-danger" onclick="Form_Submit()">
-    </form>
+    <select name="dryrun_auth" id="dryrunmodel" class="form-control" onchange="changeDryrunAction()">
+                <option value="1">鍵認証</option>
+                <option value="2">パスワード認証</option>
+    </select>  
+                    <form id="dryrunformId" action="/dryrun_playbook" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
+                                        <input type="submit" value="ドライラン" class="btn btn-success" onclick="Form_Submit()">
+                    </form>
+    <select name="run_auth" id="runmodel" class="form-control" onchange="changeRunAction()">
+                <option value="1">鍵認証</option>
+                <option value="2">パスワード認証</option>
+    </select>  
+                    <form id="runformId" action="/run_playbook" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        <input type="hidden" name="id" value="<?php echo $playbook['id'] ?>">
+                                        <input type="submit" value="実行" class="btn btn-danger" onclick="Form_Submit()">
+                    </form>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
@@ -99,5 +95,31 @@
         document.getElementById("Loading").style.top = 150
         document.getElementById("Loading").style.left = (document.body.clientWidth - 300) / 2;
     }
+    /*dryrun時の認証方法選択関数*/
+    function changeDryrunAction() {
+            var model = document.getElementById("dryrunmodel").value;
+            var status = "";
+            if (model < 2){
+                status = "/dryrun_playbook";
+            } else {
+                status = "/dryrunpass_playbook";
+            }
+            
+            var formObject = document.getElementById('dryrunformId');
+            formObject.action = status;
+        }
+    /*run時の認証方法選択関数*/
+    function changeRunAction() {
+            var model = document.getElementById("runmodel").value;
+            var status = "";
+            if (model < 2){
+                status = "/run_playbook";
+            } else {
+                status = "/runpass_playbook";
+            }
+            
+            var formObject = document.getElementById('runformId');
+            formObject.action = status;
+        }
     </script>
 @stop
