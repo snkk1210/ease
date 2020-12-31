@@ -2,7 +2,9 @@
 
 ## これは何？
 
-AnsibleのplaybookをWEB上で管理/実行するツールです。
+AnsibleのplaybookをWEB上で管理/実行するツールです。  
+※詳細は下記参照  
+https://fingerease.work/archives/ease_ansible_manager/
 
 ## できること
 
