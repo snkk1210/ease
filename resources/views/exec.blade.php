@@ -58,7 +58,7 @@
  
     <select name="dryrun_auth" id="dryrunmodel" class="form-control" onchange="changeDryrunAction()">
                 <option value="1">鍵認証</option>
-                <option value="2">パスワード</option>
+                <option value="2">パスワード認証</option>
     </select>  
                     <form id="dryrunformId" action="/dryrun_playbook" method="POST">
                                         @csrf
@@ -68,7 +68,7 @@
                     </form>
     <select name="run_auth" id="runmodel" class="form-control" onchange="changeRunAction()">
                 <option value="1">鍵認証</option>
-                <option value="2">パスワード</option>
+                <option value="2">パスワード認証</option>
     </select>  
                     <form id="runformId" action="/run_playbook" method="POST">
                                         @csrf
@@ -118,7 +118,7 @@
                 status = "/runpass_playbook";
             }
             
-            var formObject = document.getElementById('formId');
+            var formObject = document.getElementById('runformId');
             formObject.action = status;
         }
     </script>
