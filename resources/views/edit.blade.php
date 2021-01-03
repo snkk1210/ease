@@ -52,9 +52,9 @@
                         <label for="textarea1">inventory:</label>
                         <textarea class="form-control" rows="10" name="inventory" class="form-control"><?php echo $edit_playbook['inventory'] ?></textarea>
                         <label for="textarea1">vars:</label>
-                        <textarea class="form-control" rows="10" name="vars" class="form-control"><?php echo $edit_playbook['vars'] ?></textarea>
+                        <textarea class="form-control" rows="10" name="vars" class="form-control" id="var-editor"><?php echo $edit_playbook['vars'] ?></textarea>
                         <label for="textarea1">main:</label>
-                        <textarea class="form-control" rows="10" name="main" class="form-control"><?php echo $edit_playbook['main'] ?></textarea>
+                        <textarea class="form-control" rows="10" name="main" class="form-control" id="txt-editor"><?php echo $edit_playbook['main'] ?></textarea>
                         <input type="hidden" name="id" value="<?php echo $edit_playbook['id'] ?>">
                         <input type="submit" value="更新" class="btn btn-success">
     </form>
@@ -68,18 +68,14 @@
 
 <!-- 読み込ませるCSSを入力 -->
 @section('css')
+    <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="/css/make.css">
 @stop
 
 <!-- 読み込ませるJSを入力 -->
 @section('js')
-<script>
-function delete_alert(e){
-   if(!window.confirm('本当に削除しますか？')){
-      window.alert('キャンセルされました'); 
-      return false;
-   }
-   document.deleteform.submit();
-};
-</script>
+    <script src="js/alert.js"></script>
+    <script src="lib/codemirror.js"></script>
+    <script src="mode/javascript/javascript.js"></script>
+    <script src="js/textarea.js"></script>
 @stop
