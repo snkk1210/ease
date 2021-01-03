@@ -48,9 +48,9 @@
                         <label for="textarea1">inventory:</label>
                         <textarea class="form-control" rows="10" name="inventory" class="form-control"></textarea>
                         <label for="textarea1">vars:</label>
-                        <textarea class="form-control" rows="10" name="vars" class="form-control"></textarea>
+                        <textarea class="form-control" rows="10" name="vars" class="form-control" id="var-editor"></textarea>
                         <label for="textarea1">main:</label>
-                        <textarea class="form-control" rows="10" name="main" class="form-control"></textarea>
+                        <textarea class="form-control" rows="10" name="main" class="form-control" id="txt-editor"></textarea>
                         <input type="hidden" name="owner_id" value="{{ $owner_id }}">
                         <input type="submit" value="作成" class="btn btn-success">
     </form>
@@ -58,10 +58,13 @@
 
 <!-- 読み込ませるCSSを入力 -->
 @section('css')
+    <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="/css/make.css">
 @stop
 
 <!-- 読み込ませるJSを入力 -->
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="lib/codemirror.js"></script>
+    <script src="mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="js/textarea.js"></script>
 @stop
