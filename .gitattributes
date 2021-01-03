@@ -1,5 +1,3 @@
-public/mode/* linguist-documentation
-public/lib/* linguist-documentation
 * text=auto
 *.css linguist-vendored
 *.scss linguist-vendored
