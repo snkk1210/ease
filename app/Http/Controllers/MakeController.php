@@ -14,10 +14,12 @@ class MakeController extends Controller
 
         $authes = Playbook::getAuthList($user);
 
+        $repolists = Playbook::getRepoList();
 
         return view('make', [
             "owner_id" => $user->id,
             "authes" => $authes,
+            "repolists" => $repolists,
         ]);
     }
 
