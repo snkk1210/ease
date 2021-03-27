@@ -93,5 +93,23 @@ class Playbook extends Model
         return $auths;
     }
 
+    /**
+     * storage/app以下のレポジトリを取得
+     */
+    public static function getRepoList(){
+        $lst = array();
+        $curdir = getcwd();
+        $repodir = $curdir . "/../storage/app";
+        $dhandle = opendir($repodir);
+        if ($dhandle){
+            while (false !== ($fname = readdir($dhandle))){
+                if ($fname != '.' && $fname != '..' && $fname != 'public' && $fname != '.gitignore'){
+                    $list[] = $fname;
+                }
+            }
+            closedir($dhandle);
+        }
+        return $list;
+    }
 
 }
