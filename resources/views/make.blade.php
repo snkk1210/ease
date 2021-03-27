@@ -26,14 +26,13 @@
                         </thead>
                         <tbody>
                             <td><input type="text" name="name" class="form-control" style="width:300px;" /></td>
-                            <td><input type="text" value= "default-CentOS7" name="repository" class="form-control" style="width:300px;" /></td>
                             <td>
-                            <!--
-                                <select name="enable_flag" id="model" class="form-control">
-                                    <option value="0">有効</option>
-                                    <option value="1">無効</option>
-                                </select>
-                            -->
+                            <select name="repository" id="model" class="form-control">
+                            @foreach($repolists as $index => $repolist)
+                                <option value="{{ $repolist }}"><?php echo $repolist ?></option>
+                            @endforeach
+                            </td>
+                            <td>
                             <select name="auth_id" id="model" class="form-control">
                             @foreach($authes as $index => $name)
                                 <option value="{{ $name->id }}"><?php echo $name->auth_name ?></option>
