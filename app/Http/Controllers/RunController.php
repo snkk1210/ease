@@ -22,6 +22,9 @@ class RunController extends Controller
         $user = Auth::user();
         Playbook::authRun($user, $target_data);
 
+        # Chatworkへの通知
+        Playbook::notify2ChatworkStart($user);
+
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
 
@@ -58,6 +61,9 @@ class RunController extends Controller
         # playbook実行用ファイルのクリア
         Storage::delete(["$copy_dir/host", "$copy_dir/group_vars/all.yml", "$copy_dir/main.yml", "$copy_dir/private.pem"]);
         Storage::deleteDirectory("$copy_dir");
+
+         # Chatworkへの通知
+         Playbook::notify2ChatworkEnd($ansible_output[count($ansible_output)-2]);       
 
         return view('return', [
             "ansible_output" => $ansible_output,
@@ -133,6 +139,9 @@ class RunController extends Controller
         $user = Auth::user();
         Playbook::authRun($user, $target_data);
 
+        # Chatworkへの通知
+        Playbook::notify2ChatworkStart($user);
+
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
 
@@ -172,6 +181,9 @@ class RunController extends Controller
         # playbook実行用ファイルのクリア
         Storage::delete(["$copy_dir/host", "$copy_dir/group_vars/all.yml", "$copy_dir/main.yml", "$copy_dir/private.pem"]);
         Storage::deleteDirectory("$copy_dir");
+
+        # Chatworkへの通知
+        Playbook::notify2ChatworkEnd($ansible_output[count($ansible_output)-2]);
 
         return view('return', [
             "ansible_output" => $ansible_output,

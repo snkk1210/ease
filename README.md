@@ -48,7 +48,7 @@ cd ease
 composer install
 ```
 
-### 3.DB環境の調整
+### 3.環境変数の調整
 
 ```
 cp -p .env.example .env
@@ -57,6 +57,8 @@ vi .env
 DB_DATABASE=xxxx
 DB_USERNAME=xxxx
 DB_PASSWORD=xxxx
+CW_TOKEN=""
+CW_ENDPOINT=""
 =====================
 ```
 
