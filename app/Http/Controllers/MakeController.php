@@ -65,6 +65,49 @@ class MakeController extends Controller
     }
 
     /**
+     * playbookを論理削除
+     * @param  Request  $request
+     */
+    public function disable(Request $request){
+        $id = $request->input('id');
+
+        # 実行ユーザで認証処理
+        $target_data = Playbook::where('id', $id)->get();
+
+        $user = Auth::user();
+        Playbook::authView($user, $target_data);
+
+        $authes = Playbook::getAuthList($user);
+
+        # 論理削除のフラグを更新
+        Playbook::where('id', $id)->update(['enable_flag' => 1]);
+
+        return view('/home');
+    }
+
+    /**
+     * playbookを論理削除解除
+     * @param  Request  $request
+     */
+    public function enable(Request $request){
+        $id = $request->input('id');
+
+        # 実行ユーザで認証処理
+        $target_data = Playbook::where('id', $id)->get();
+
+        $user = Auth::user();
+        Playbook::authView($user, $target_data);
+
+        $authes = Playbook::getAuthList($user);
+
+        # 論理削除のフラグを更新
+        Playbook::where('id', $id)->update(['enable_flag' => 0]);
+
+        return view('/home');
+    }
+
+
+    /**
      * playbook更新
      * @param  Request  $request
      */
