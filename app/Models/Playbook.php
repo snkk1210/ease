@@ -117,8 +117,8 @@ class Playbook extends Model
      * 実行時Chatwork通知メソッド
      */
     public static function notify2ChatworkStart($user){
-        $token = env('CW_TOKEN');
-        $endpoint = env('CW_ENDPOINT');
+        $token = config('chatwork.cw-token');
+        $endpoint = config('chatwork.cw-endpoint');
         $date = date("Y/m/d H:i:s");
 
         $message = "[info][title]EASE Ansible MG started provisioning at " . $date . "[/title]\n" . " by " . $user->name . "[/info]";
@@ -134,8 +134,8 @@ class Playbook extends Model
      * 終了時Chatwork通知メソッド
      */
     public static function notify2ChatworkEnd($ansible_output){
-        $token = env('CW_TOKEN');
-        $endpoint = env('CW_ENDPOINT');
+        $token = config('chatwork.cw-token');
+        $endpoint = config('chatwork.cw-endpoint');
         $date = date("Y/m/d H:i:s");
 
         $message = "[info][title]EASE Ansible MG ended provisioning at " . $date . "[/title]\n" . " result: " .  $ansible_output . "[/info]";
