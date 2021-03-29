@@ -138,7 +138,7 @@ class Playbook extends Model
         $endpoint = config('chatwork.cw-endpoint');
         $date = date("Y/m/d H:i:s");
 
-        $message = "[info][title]EASE Ansible MG ended provisioning at " . $date . "[/title]\n" . " result: " .  $ansible_output . "[/info]";
+        $message = "[info][title]EASE Ansible MG ended provisioning at " . $date . "[/title]\n" .  $ansible_output . "[/info]";
         $response = Http::asForm()->withHeaders([
             'X-ChatWorkToken' => $token,
         ])->post($endpoint, [
