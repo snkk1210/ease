@@ -20,16 +20,16 @@ $('#playbookTable').DataTable({
 </script>
 
 <!-- ページタイトルを入力 -->
-@section('title', 'Playbooks')
+@section('title', 'Archives')
 
 <!-- ページの見出しを入力 -->
 @section('content_header')
-    <h1>Playbooks</h1>
+    <h1>Archives</h1>
 @stop
 
 <!-- ページの内容を入力 -->
 @section('content')
-    <p>This is Playbooks.</p>
+    <p>This is Archives.</p>
 
     <div class="table-responsive">
     <table id="playbookTable" class="table table-striped table-bordered table-sm" width="100%">
@@ -38,9 +38,7 @@ $('#playbookTable').DataTable({
             <th class="text-nowrap" width="25%">playbook</th>
             <th class="text-nowrap" width="25%">repository</th>
             <th class="text-nowrap" width="20%">owner</th>
-            <th class="text-nowrap" width="10%">アーカイブ</th>
-            <th class="text-nowrap" width="10%">編集</th>
-            <th class="text-nowrap" width="10%">実行</th>
+            <th class="text-nowrap" width="30%">アーカイブ</th>
         </tr>
     </thead>
     <tbody>
@@ -50,26 +48,10 @@ $('#playbookTable').DataTable({
                         <td>{{ optional($playbook)->repository }}</td>
                         <td>{{ optional($playbook)->name }}</td>
                         <td>
-                            <form action="/disable_playbook" method="POST">
+                            <form action="/enable_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="アーカイブ" type="submit" value="アーカイブ" class="btn btn-warning">
-                                <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/edit_playbook" method="POST">
-                                @csrf
-                                @method('POST')
-                                <input title="編集" type="submit" value="編集" class="btn btn-success">
-                                <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/exec_playbook" method="POST">
-                                @csrf
-                                @method('POST')
-                                <input title="実行" type="submit" value="実行" class="btn btn-danger">
+                                <input title="元に戻す" type="submit" value="元に戻す" class="btn btn-warning">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>

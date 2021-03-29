@@ -50,10 +50,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/register_auth','App\Http\Controllers\AuthenticationController@register');
     });
     Route::get('/playbooks','App\Http\Controllers\PlayBookController@index');
+    Route::get('/archives','App\Http\Controllers\PlayBookController@archive');
     Route::get('/make','App\Http\Controllers\MakeController@index');
     Route::get('/auths','App\Http\Controllers\AuthenticationController@index');
     Route::get('/auth','App\Http\Controllers\AuthenticationController@make');
     Route::post('/edit_playbook','App\Http\Controllers\MakeController@edit');
+    Route::post('/disable_playbook','App\Http\Controllers\MakeController@disable');
+    Route::post('/enable_playbook','App\Http\Controllers\MakeController@enable');
     Route::post('/edit_auth','App\Http\Controllers\AuthenticationController@edit');
     Route::post('/update_auth','App\Http\Controllers\AuthenticationController@update');
     Route::post('/remove_auth','App\Http\Controllers\AuthenticationController@remove');

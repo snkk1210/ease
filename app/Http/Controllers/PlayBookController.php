@@ -17,9 +17,28 @@ class PlayBookController extends Controller
         $playbooks = \DB::table('playbooks')
         ->select('playbooks.id as playbooks_id', 'playbooks.name as playbooks_name', 'playbooks.*', 'users.*')
         ->leftjoin('users','playbooks.owner_id','=' ,'users.id')
+        ->where('enable_flag', 0)
         ->get();
 
         return view('playbook', [
+            "playbooks" => $playbooks,
+        ]);
+    }
+
+    /**
+     * playbooksテーブルとusersテーブルの内容を外部結合してアーカイブを一覧表示
+     */
+    public function archive(){
+        #$playbooks = PlayBook::all()
+
+        # クエリビルダーを使うことにした
+        $playbooks = \DB::table('playbooks')
+        ->select('playbooks.id as playbooks_id', 'playbooks.name as playbooks_name', 'playbooks.*', 'users.*')
+        ->leftjoin('users','playbooks.owner_id','=' ,'users.id')
+        ->where('enable_flag', 1)
+        ->get();
+
+        return view('archive', [
             "playbooks" => $playbooks,
         ]);
     }
