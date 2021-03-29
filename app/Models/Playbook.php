@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Authentication;
+use Illuminate\Support\Facades\Http;
 
 class Playbook extends Model
 {
@@ -110,6 +111,40 @@ class Playbook extends Model
             closedir($dhandle);
         }
         return $list;
+    }
+
+    /**
+     * 実行時Chatwork通知メソッド
+     */
+    public static function notify2ChatworkStart($user){
+        $token = config('chatwork.cw-token');
+        $endpoint = config('chatwork.cw-endpoint');
+        $date = date("Y/m/d H:i:s");
+
+        $message = "[info][title]EASE Ansible MG started provisioning at " . $date . "[/title]\n" . " by " . $user->name . "[/info]";
+        $response = Http::asForm()->withHeaders([
+            'X-ChatWorkToken' => $token,
+        ])->post($endpoint, [
+            'body' => $message
+        ]);
+        return $response;
+    }
+
+    /**
+     * 終了時Chatwork通知メソッド
+     */
+    public static function notify2ChatworkEnd($ansible_output){
+        $token = config('chatwork.cw-token');
+        $endpoint = config('chatwork.cw-endpoint');
+        $date = date("Y/m/d H:i:s");
+
+        $message = "[info][title]EASE Ansible MG ended provisioning at " . $date . "[/title]\n" .  $ansible_output . "[/info]";
+        $response = Http::asForm()->withHeaders([
+            'X-ChatWorkToken' => $token,
+        ])->post($endpoint, [
+            'body' => $message
+        ]);
+        return $response;
     }
 
 }
