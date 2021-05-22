@@ -38,7 +38,8 @@ $('#playbookTable').DataTable({
             <th class="text-nowrap" width="25%">playbook</th>
             <th class="text-nowrap" width="25%">repository</th>
             <th class="text-nowrap" width="20%">owner</th>
-            <th class="text-nowrap" width="30%">アーカイブ</th>
+            <th class="text-nowrap" width="16%">アーカイブ</th>
+            <th class="text-nowrap" width="15%">削除</th>
         </tr>
     </thead>
     <tbody>
@@ -52,6 +53,14 @@ $('#playbookTable').DataTable({
                                 @csrf
                                 @method('POST')
                                 <input title="元に戻す" type="submit" value="元に戻す" class="btn btn-warning">
+                                <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/remove_playbook" method="POST">
+                                @csrf
+                                @method('POST')
+                                <input title="削除" type="submit" value="削除" class="btn btn-danger" onClick="delete_alert(event);return false;">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -72,5 +81,5 @@ $('#playbookTable').DataTable({
 
 <!-- 読み込ませるJSを入力 -->
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script src="js/alert.js"></script>
 @stop
