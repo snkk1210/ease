@@ -1,9 +1,4 @@
-public/mode/* linguist-documentation
-public/lib/* linguist-documentation
+public/mode/* linguist-vendored
+public/lib/* linguist-vendored
 * text=auto
-*.css linguist-vendored
-*.scss linguist-vendored
-*.js linguist-vendored
-*.html linguist-vendored
-*.html linguist-language=php
 CHANGELOG.md export-ignore
