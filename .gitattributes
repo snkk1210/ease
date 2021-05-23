@@ -3,8 +3,8 @@ public/lib/* linguist-vendored
 public/mode/* linguist-documentation
 public/lib/* linguist-documentation
 * text=auto
-*.css linguist-vendored
-*.scss linguist-vendored
-*.js linguist-vendored
-*.html linguist-vendored
+*.css linguist-documentation
+*.scss linguist-documentation
+*.js linguist-documentation
+*.html linguist-documentation
 CHANGELOG.md export-ignore
