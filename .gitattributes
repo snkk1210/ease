@@ -1,4 +1,6 @@
 public/mode/* linguist-vendored
 public/lib/* linguist-vendored
+public/mode/* linguist-documentation
+public/lib/* linguist-documentation
 * text=auto
 CHANGELOG.md export-ignore
