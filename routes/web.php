@@ -48,6 +48,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/register_playbook','App\Http\Controllers\MakeController@register');
         // 認証方法登録
         Route::post('/register_auth','App\Http\Controllers\AuthenticationController@register');
+        // user一覧
+        Route::get('/users','App\Http\Controllers\UserController@index');
     });
     Route::get('/playbooks','App\Http\Controllers\PlayBookController@index');
     Route::get('/archives','App\Http\Controllers\PlayBookController@archive');
@@ -69,6 +71,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/runpass_playbook','App\Http\Controllers\RunController@runPasswd');
     // playbook削除
     Route::post('/remove_playbook','App\Http\Controllers\MakeController@remove');
-
-    
 });
