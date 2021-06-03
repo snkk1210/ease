@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth']], function () {
             // ユーザ登録
             Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
             Route::post('register', 'App\Http\Controllers\Auth\RegisterController@register');
+            // user一覧
+            Route::get('/users','App\Http\Controllers\UserController@index');
+            Route::post('/edit_user','App\Http\Controllers\UserController@edit');
     });
 
     // パスワード更新
@@ -48,8 +51,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/register_playbook','App\Http\Controllers\MakeController@register');
         // 認証方法登録
         Route::post('/register_auth','App\Http\Controllers\AuthenticationController@register');
-        // user一覧
-        Route::get('/users','App\Http\Controllers\UserController@index');
     });
     Route::get('/playbooks','App\Http\Controllers\PlayBookController@index');
     Route::get('/archives','App\Http\Controllers\PlayBookController@archive');
