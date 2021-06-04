@@ -40,4 +40,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * users テーブルから取得したデータを返すメソッド
+     */
+    public function getArrayParams($target){
+
+        $this->id = $target[0]['id'];
+        $this->name = $target[0]['name'];
+        $this->email = $target[0]['email'];
+        $this->role = $target[0]['role'];
+
+        return $this;
+    }
 }

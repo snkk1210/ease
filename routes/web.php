@@ -33,6 +33,11 @@ Route::group(['middleware' => ['auth']], function () {
             // ユーザ登録
             Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm');
             Route::post('register', 'App\Http\Controllers\Auth\RegisterController@register');
+            // user一覧
+            Route::get('/users','App\Http\Controllers\UserController@index');
+            Route::post('/edit_user','App\Http\Controllers\UserController@edit');
+            Route::post('/update_user','App\Http\Controllers\UserController@update');
+            Route::post('/remove_user','App\Http\Controllers\UserController@remove');
     });
 
     // パスワード更新
@@ -69,6 +74,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/runpass_playbook','App\Http\Controllers\RunController@runPasswd');
     // playbook削除
     Route::post('/remove_playbook','App\Http\Controllers\MakeController@remove');
-
-    
 });
