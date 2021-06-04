@@ -36,7 +36,8 @@ $('#userTable').DataTable({
     <thead>
         <tr>
             <th class="text-nowrap" width="40%">ユーザ</th>
-            <th class="text-nowrap" width="40%">役割</th>
+            <th class="text-nowrap" width="40%">メールアドレス</th>
+            <th class="text-nowrap" width="10%">役割</th>
             <!-- # TODO: ユーザの有効/無効機能を追加予定
             <th class="text-nowrap" width="10%">有効/無効</th>
             -->
@@ -47,6 +48,7 @@ $('#userTable').DataTable({
         @foreach($users as $user)
             <tr>
                         <td>{{ optional($user)->name }}</td>
+                        <td>{{ optional($user)->email }}</td>
                         <td>{{ optional($user)->role }}</td>
                         <!-- # TODO: ユーザの有効/無効機能を追加予定
                         <td>
