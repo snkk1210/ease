@@ -302,6 +302,11 @@ return [
             'url'  => 'register',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        [
+            'text' => 'Members',
+            'url'  => 'users',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
         /*
         [
             'text'    => 'multilevel',
