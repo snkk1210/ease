@@ -34,4 +34,26 @@ class UserController extends Controller
             "edit_user" => $edit_user,
         ]);
     }
+
+    /**
+     * ユーザ情報の更新
+     * @param Request $request
+     */
+    public function update(Request $request){
+        
+        User::where('id', $request->input('id'))->update($request->except(['_token', '_method']));
+
+        return redirect('/users');
+    }
+
+    /**
+     * ユーザの削除
+     * @param Request $request
+     */
+    public function remove(Request $request){
+
+        User::where('id', $request->input('id'))->delete($request->except(['_token', '_method']));
+
+        return redirect('/users');
+    }
 }

@@ -36,6 +36,8 @@ Route::group(['middleware' => ['auth']], function () {
             // user一覧
             Route::get('/users','App\Http\Controllers\UserController@index');
             Route::post('/edit_user','App\Http\Controllers\UserController@edit');
+            Route::post('/update_user','App\Http\Controllers\UserController@update');
+            Route::post('/remove_user','App\Http\Controllers\UserController@remove');
     });
 
     // パスワード更新
