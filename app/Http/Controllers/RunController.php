@@ -28,9 +28,15 @@ class RunController extends Controller
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
 
-        # 後付けの認証鍵を設定していなければ、認証方法を更新
+        # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            if (is_null($playbook['auth_id'])){
+                $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            } else {
+                abort(500, 'Not Define');
+                header('Location: /home', true, 500);
+                exit();
+            }
         }
 
         # playbookのレポジトリディレクトリ
@@ -87,9 +93,15 @@ class RunController extends Controller
 
         
 
-        # 後付けの認証鍵を設定していなければ、認証方法を更新
+        # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            if (is_null($playbook['auth_id'])){
+                $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            } else {
+                abort(500, 'Not Define');
+                header('Location: /home', true, 500);
+                exit();
+            }
         }
 
         # playbookのレポジトリディレクトリ
@@ -145,9 +157,15 @@ class RunController extends Controller
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
 
-        # 後付けの認証鍵を設定していなければ、認証方法を更新
+        # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            if (is_null($playbook['auth_id'])){
+                $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            } else {
+                abort(500, 'Not Define');
+                header('Location: /home', true, 500);
+                exit();
+            }
         }
 
         # playbookのレポジトリディレクトリ
@@ -205,9 +223,15 @@ class RunController extends Controller
         $playbook = new Playbook();
         $playbook = $playbook->getArrayParams($target_data);
 
-        # 後付けの認証鍵を設定していなければ、認証方法を更新
+        # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            if (is_null($playbook['auth_id'])){
+                $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
+            } else {
+                abort(500, 'Not Define');
+                header('Location: /home', true, 500);
+                exit();
+            }
         }
 
         # playbookのレポジトリディレクトリ
