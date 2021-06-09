@@ -33,8 +33,7 @@ class RunController extends Controller
             if (is_null($playbook['auth_id'])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
-                abort(500, 'Not Define');
-                header('Location: /home', true, 500);
+                abort(500, '認証情報が定義されていません。');
                 exit();
             }
         }
@@ -98,8 +97,7 @@ class RunController extends Controller
             if (is_null($playbook['auth_id'])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
-                abort(500, 'Not Define');
-                header('Location: /home', true, 500);
+                abort(500, '認証情報が定義されていません。');
                 exit();
             }
         }
@@ -162,8 +160,7 @@ class RunController extends Controller
             if (is_null($playbook['auth_id'])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
-                abort(500, 'Not Define');
-                header('Location: /home', true, 500);
+                abort(500, '認証情報が定義されていません。');
                 exit();
             }
         }
@@ -228,8 +225,7 @@ class RunController extends Controller
             if (is_null($playbook['auth_id'])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
-                abort(500, 'Not Define');
-                header('Location: /home', true, 500);
+                abort(500, '認証情報が定義されていません。');
                 exit();
             }
         }
