@@ -184,10 +184,12 @@ class RunController extends Controller
         if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass)){
             $passwd = Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass;
         } else {
+            # 処理中断
+            Storage::delete(["$copy_dir/host", "$copy_dir/group_vars/all.yml", "$copy_dir/main.yml", "$copy_dir/private.pem"]);
+            Storage::deleteDirectory("$copy_dir");
             abort(500, '認証情報(パスワード)が定義されていません。');
             exit();
         }
-
         $add_passwd = "cd ../storage/app/$copy_dir && echo '\n[all:vars]\nansible_ssh_pass=$passwd'>> host";
         # 秘密鍵の権限調整コマンド
         $chmod_key = "cd ../storage/app/$copy_dir && chmod 600 private.pem";
@@ -255,10 +257,12 @@ class RunController extends Controller
         if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass)){
             $passwd = Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass;
         } else {
+            # 処理中断
+            Storage::delete(["$copy_dir/host", "$copy_dir/group_vars/all.yml", "$copy_dir/main.yml", "$copy_dir/private.pem"]);
+            Storage::deleteDirectory("$copy_dir");
             abort(500, '認証情報(パスワード)が定義されていません。');
             exit();
         }
-        
         $add_passwd = "cd ../storage/app/$copy_dir && echo '\n[all:vars]\nansible_ssh_pass=$passwd'>> host";
         # 秘密鍵の権限調整コマンド
         $chmod_key = "cd ../storage/app/$copy_dir && chmod 600 private.pem";
