@@ -30,7 +30,7 @@ class RunController extends Controller
 
         # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            if (is_null($playbook['auth_id'])){
+            if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
                 abort(500, '認証情報が定義されていません。');
@@ -94,7 +94,7 @@ class RunController extends Controller
 
         # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            if (is_null($playbook['auth_id'])){
+            if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
                 abort(500, '認証情報が定義されていません。');
@@ -157,7 +157,7 @@ class RunController extends Controller
 
         # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            if (is_null($playbook['auth_id'])){
+            if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
                 abort(500, '認証情報が定義されていません。');
@@ -181,7 +181,13 @@ class RunController extends Controller
         Storage::prepend("$copy_dir/main.yml", $playbook['main']);
 
         # パスワード認証利用コマンド
-        $passwd = Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass;
+        if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass)){
+            $passwd = Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass;
+        } else {
+            abort(500, '認証情報(パスワード)が定義されていません。');
+            exit();
+        }
+
         $add_passwd = "cd ../storage/app/$copy_dir && echo '\n[all:vars]\nansible_ssh_pass=$passwd'>> host";
         # 秘密鍵の権限調整コマンド
         $chmod_key = "cd ../storage/app/$copy_dir && chmod 600 private.pem";
@@ -222,7 +228,7 @@ class RunController extends Controller
 
         # NOTE: 後付けの認証鍵を設定していなければ、認証方法を更新
         if (is_null($playbook['private_key'])){
-            if (is_null($playbook['auth_id'])){
+            if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0])){
                 $playbook['private_key'] = Authentication::where('id', $playbook['auth_id'])->get('ssh_key')[0]->ssh_key;
             } else {
                 abort(500, '認証情報が定義されていません。');
@@ -246,7 +252,13 @@ class RunController extends Controller
         Storage::prepend("$copy_dir/main.yml", $playbook['main']);
 
         # パスワード認証利用コマンド
-        $passwd = Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass;
+        if (isset(Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass)){
+            $passwd = Authentication::where('id', $playbook['auth_id'])->get('ssh_pass')[0]->ssh_pass;
+        } else {
+            abort(500, '認証情報(パスワード)が定義されていません。');
+            exit();
+        }
+        
         $add_passwd = "cd ../storage/app/$copy_dir && echo '\n[all:vars]\nansible_ssh_pass=$passwd'>> host";
         # 秘密鍵の権限調整コマンド
         $chmod_key = "cd ../storage/app/$copy_dir && chmod 600 private.pem";
