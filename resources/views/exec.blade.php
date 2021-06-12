@@ -24,21 +24,12 @@
                             <td><input readonly type="text" value="<?php echo $playbook['name'] ?>" name="name" class="form-control" style="width:300px;" /></td>
                             <td><input readonly type="text" value="<?php echo $playbook['repository'] ?>" name="repository" class="form-control" style="width:300px;" /></td>
                             <td>
-                            <!--
-                                <select readonly name="enable_flag" id="model" class="form-control">
-                                    <option value="0">有効</option>
-                                    <option value="1">無効</option>
-                                </select>
-                            -->
-                            <select readonly name="auth_id" id="model" class="form-control">
                             @foreach($authes as $index => $name)
                                 @if ($name->id == $playbook['auth_id'])
-                                <option value="{{ $name->id }}" selected><?php echo $name->auth_name ?></option>
+                                <input readonly type="text" value="<?php echo $name->auth_name ?>" name="repository" class="form-control" style="width:300px;" />
                                 @else
-                                <option value="{{ $name->id }}"><?php echo $name->auth_name ?></option>
                                 @endif
                             @endforeach
-                            </select>     
                             </td>
                         </tbody>
                         </table>

@@ -280,7 +280,7 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text'        => 'archives',
+            'text'        => 'Archives',
             'url'         => 'archives',
             'icon'        => 'far fa-fw fa-file',
             //'label'       => 4,
