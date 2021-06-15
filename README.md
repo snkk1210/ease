@@ -2,19 +2,18 @@
 
 ## これは何？
 
-AnsibleのplaybookをWEB上で管理/実行するツールです。  
+Ansible の playbook を WEB上で管理/実行するツールです。  
 ※詳細は下記参照  
 https://fingerease.work/archives/ease_ansible_manager/
 
 ## できること
 
 - ユーザ認証
-- playbook作成/管理
-- Ansible実行
+- playbook 作成/管理
+- Ansible 実行
 
 ## 動作環境
 
-OS:  CentOS7  
 PHP:  7系
 
 ```
@@ -62,6 +61,11 @@ CW_ENDPOINT=""
 =====================
 ```
 
+※ Ansible 実行時に ChatWork への通知が必要であれば、下記2つを定義して下さい。
+
+CW_TOKEN → ChatWork トークン  
+CW_ENDPOINT → 通知先エンドポイント 
+
 ### 4.マイグレーション
 
 ```
@@ -80,7 +84,7 @@ php artisan key:generate
 chmod -R 777 storage
 ```
 
-### 7.デフォルトplaybook取得
+### 7.デフォルト playbook 取得
 
 ```
 cd storage/app
@@ -108,4 +112,13 @@ PASSWORD: easeease
 ```
 ID: read@localhost
 PASSWORD: easeease 
+```
+
+## 補足
+
+Ansible 実行時に WEB サーバがタイムアウトしないよう 適宜 WEBサーバの設定を調整して下さい。  
+※ Nginx であれば、下記のファイルを参考下さい。
+
+```
+docker/nginx/ease.conf
 ```
