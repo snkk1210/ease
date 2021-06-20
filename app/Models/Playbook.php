@@ -80,6 +80,25 @@ class Playbook extends Model
     }
 
     /**
+     * playbook Archive化 / Archive解除前の認証
+     * @param  $user_id, $playbook_id
+     */
+    public static function authArchive($user_id, $playbook_id){
+        # システム管理者であれば認証を通す
+        if ($user_id->role == 1){
+            return 0;
+        # playbookの所有者であれば認証を通す
+        } elseif ($user_id->id == $playbook_id[0]['owner_id']){
+            return 0;
+        # それ以外は403エラー
+        } else {
+            abort(403, 'Forbidden');
+            header('Location: /home', true, 403);
+            exit();
+        }
+    }
+
+    /**
      * playbook作成時の認証一覧表示
      * @param $user
      */

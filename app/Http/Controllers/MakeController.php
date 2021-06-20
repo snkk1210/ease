@@ -75,7 +75,7 @@ class MakeController extends Controller
         $target_data = Playbook::where('id', $id)->get();
 
         $user = Auth::user();
-        Playbook::authView($user, $target_data);
+        Playbook::authArchive($user, $target_data);
 
         $authes = Playbook::getAuthList($user);
 
@@ -96,7 +96,7 @@ class MakeController extends Controller
         $target_data = Playbook::where('id', $id)->get();
 
         $user = Auth::user();
-        Playbook::authView($user, $target_data);
+        Playbook::authArchive($user, $target_data);
 
         $authes = Playbook::getAuthList($user);
 
