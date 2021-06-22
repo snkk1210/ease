@@ -49,6 +49,10 @@ class RunController extends Controller
         exec($copy_repo, $copy_repo_output, $copy_repo_return);
 
         # playbook実行ファイルを生成
+        Storage::delete("$copy_dir/host");
+        Storage::delete("$copy_dir/group_vars/all.yml");
+        Storage::delete("$copy_dir/main.yml");
+        Storage::delete("$copy_dir/private.pem");
         Storage::prepend("$copy_dir/host", $playbook['inventory']);
         Storage::prepend("$copy_dir/group_vars/all.yml", $playbook['vars']);
         Storage::prepend("$copy_dir/main.yml", $playbook['main']);
@@ -113,6 +117,10 @@ class RunController extends Controller
         exec($copy_repo, $copy_repo_output, $copy_repo_return);
 
         # playbook実行ファイルを生成
+        Storage::delete("$copy_dir/host");
+        Storage::delete("$copy_dir/group_vars/all.yml");
+        Storage::delete("$copy_dir/main.yml");
+        Storage::delete("$copy_dir/private.pem");
         Storage::prepend("$copy_dir/host", $playbook['inventory']);
         Storage::prepend("$copy_dir/group_vars/all.yml", $playbook['vars']);
         Storage::prepend("$copy_dir/main.yml", $playbook['main']);
@@ -176,6 +184,9 @@ class RunController extends Controller
         exec($copy_repo, $copy_repo_output, $copy_repo_return);
 
         # playbook実行ファイルを生成
+        Storage::delete("$copy_dir/host");
+        Storage::delete("$copy_dir/group_vars/all.yml");
+        Storage::delete("$copy_dir/main.yml");
         Storage::prepend("$copy_dir/host", $playbook['inventory']);
         Storage::prepend("$copy_dir/group_vars/all.yml", $playbook['vars']);
         Storage::prepend("$copy_dir/main.yml", $playbook['main']);
@@ -249,6 +260,9 @@ class RunController extends Controller
         exec($copy_repo, $copy_repo_output, $copy_repo_return);
 
         # playbook実行ファイルを生成
+        Storage::delete("$copy_dir/host");
+        Storage::delete("$copy_dir/group_vars/all.yml");
+        Storage::delete("$copy_dir/main.yml");
         Storage::prepend("$copy_dir/host", $playbook['inventory']);
         Storage::prepend("$copy_dir/group_vars/all.yml", $playbook['vars']);
         Storage::prepend("$copy_dir/main.yml", $playbook['main']);
