@@ -10,7 +10,8 @@ return [
     'register'                    => 'Register',
     # NOTE: ログイン画面のユーザ作成リンクを非表示
     'register_a_new_membership'   => '',
-    'i_forgot_my_password'        => 'I forgot my password',
+    # NOTE: ログイン画面のパスワードリセットリンクを非表示
+    'i_forgot_my_password'        => '',
     'i_already_have_a_membership' => 'I already have a membership',
     'sign_in'                     => 'Sign In',
     'log_out'                     => 'Log Out',
