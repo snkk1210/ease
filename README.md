@@ -4,7 +4,7 @@
 
 Ansible の playbook を WEB上で管理/実行するツールです。  
 ※詳細は下記参照  
-https://fingerease.work/archives/ease_ansible_manager/
+https://ease-wiki.fingerease.work
 
 ## できること
 
