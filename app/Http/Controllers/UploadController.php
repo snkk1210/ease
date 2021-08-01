@@ -24,16 +24,25 @@ class UploadController extends Controller
         $lst = array();
         $curdir = getcwd();
         $serchdir = $curdir . "/../storage/app/uploads/" . $directory;
+
+        /* # NOTE: シェルコマンドだと見栄えが悪いので未採用
+        $exec_ls = "ls -l $serchdir";
+        exec($exec_ls, $lists, $return_code);
+        */
+
         $dhandle = opendir($serchdir);
         if ($dhandle){
             while (false !== ($fname = readdir($dhandle))){
                 if ($fname != '.' && $fname != '..'){
-                    $list[] = $fname;
+                    $lists[] = $fname;
                 }
             }
             closedir($dhandle);
         }
-        print_r($list);
+
+        return view('upload' ,[
+            "lists" => $lists,
+        ]);
     }
 
     /**

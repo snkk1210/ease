@@ -24,6 +24,13 @@
         <td><input type="text" value="" name="directory" class="form-control" style="width:300px;" /></td>
         <input type="submit" value="show">
     </form>
+
+    @if(isset( $lists ))
+    @foreach ($lists as $list)
+        <p>{!! nl2br(e($list)) !!}</p>
+    @endforeach
+    @endif
+
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
