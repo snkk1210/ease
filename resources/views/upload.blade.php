@@ -18,6 +18,12 @@
         <input type="file" id="file" name="file[]" multiple>
         <input type="submit" value="upload">
     </form>
+
+    <form method="POST" action="/show" enctype="multipart/form-data">
+        @csrf
+        <td><input type="text" value="" name="directory" class="form-control" style="width:300px;" /></td>
+        <input type="submit" value="show">
+    </form>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->

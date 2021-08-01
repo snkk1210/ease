@@ -78,4 +78,7 @@ Route::group(['middleware' => ['auth']], function () {
     // ファイルのアップロード
     Route::get('/upload','App\Http\Controllers\UploadController@index');
     Route::post('/store','App\Http\Controllers\UploadController@store');
+
+    // アップロードディレクトリの検索
+    Route::post('/show','App\Http\Controllers\UploadController@show');
 });

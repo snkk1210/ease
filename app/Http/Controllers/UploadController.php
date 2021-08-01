@@ -17,8 +17,23 @@ class UploadController extends Controller
     /**
      * 
      */
-    public function show(){
-        //
+    public function show(Request $request){
+        
+        $directory = $request->directory;
+
+        $lst = array();
+        $curdir = getcwd();
+        $serchdir = $curdir . "/../storage/app/uploads/" . $directory;
+        $dhandle = opendir($serchdir);
+        if ($dhandle){
+            while (false !== ($fname = readdir($dhandle))){
+                if ($fname != '.' && $fname != '..'){
+                    $list[] = $fname;
+                }
+            }
+            closedir($dhandle);
+        }
+        print_r($list);
     }
 
     /**
