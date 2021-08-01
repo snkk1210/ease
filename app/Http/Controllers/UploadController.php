@@ -25,6 +25,9 @@ class UploadController extends Controller
         $curdir = getcwd();
         $serchdir = $curdir . "/../storage/app/uploads/" . $directory;
 
+        $path_check = preg_match('/(\.\.\/)/', $directory) ? 1 : 0;
+        if($path_check){ return "Directory Traversal measures"; }
+
         /* # NOTE: シェルコマンドだと見栄えが悪いので未採用
         $exec_ls = "ls -l $serchdir";
         exec($exec_ls, $lists, $return_code);
@@ -55,6 +58,9 @@ class UploadController extends Controller
         $directory = $request->directory;
         $deploydir = "uploads/" . $directory;
  
+        $path_check = preg_match('/(\.\.\/)/', $deploydir) ? 1 : 0;
+        if($path_check){ return "Directory Traversal measures"; }
+
         foreach($files as $file){
 
             $fname = $file->getClientOriginalName();
