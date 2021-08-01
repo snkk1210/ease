@@ -53,13 +53,16 @@ class UploadController extends Controller
         $files = $request->file('file');
 
         $directory = $request->directory;
-
+        $deploydir = "uploads/" . $directory;
+ 
         foreach($files as $file){
 
-            var_dump($file->getClientOriginalName());
+            $fname = $file->getClientOriginalName();
+            $file->storeAS($deploydir,$fname);
 
         }
 
+        return view('upload');
     }
 
 }

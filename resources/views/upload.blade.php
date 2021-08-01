@@ -22,7 +22,7 @@
     <form method="POST" action="/show" enctype="multipart/form-data">
         @csrf
         <td><input type="text" value="" name="directory" class="form-control" style="width:300px;" /></td>
-        <input type="submit" value="show">
+        <input type="submit" value="ファイル表示">
     </form>
 
     @if(isset( $lists ))
