@@ -22,14 +22,18 @@ class UploadController extends Controller
     }
 
     /**
-     * 
+     *
      */
     public function store(Request $request){
 
         $files = $request->file('file');
 
+        $directory = $request->directory;
+
         foreach($files as $file){
+
             var_dump($file->getClientOriginalName());
+
         }
 
     }
