@@ -74,4 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/runpass_playbook','App\Http\Controllers\RunController@runPasswd');
     // playbook削除
     Route::post('/remove_playbook','App\Http\Controllers\MakeController@remove');
+
+    // ファイルのアップロード
+    Route::get('/upload','App\Http\Controllers\UploadFileController@index');
 });
