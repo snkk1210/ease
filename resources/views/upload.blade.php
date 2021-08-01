@@ -11,6 +11,13 @@
 <!-- ページの内容を入力 -->
 @section('content')
     <p>Upload Files</p>
+
+    <form method="POST" action="/store" enctype="multipart/form-data">
+        @csrf
+        <td><input type="text" value="" name="directory" class="form-control" style="width:300px;" /></td>
+        <input type="file" id="file" name="file[]" multiple>
+        <input type="submit" value="upload">
+    </form>
 @stop
 
 <!-- 読み込ませるCSSを入力 -->
