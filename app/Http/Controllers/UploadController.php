@@ -28,6 +28,8 @@ class UploadController extends Controller
 
         SecurityFunction::directoryTraversalDetection($directory);
 
+        SecurityFunction::directoryPathExists($serchdir);
+
         /* # NOTE: シェルコマンドだと見栄えが悪いので未採用
         $exec_ls = "ls -l $serchdir";
         exec($exec_ls, $lists, $return_code);
