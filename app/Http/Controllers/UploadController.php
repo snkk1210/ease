@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Lib\SecurityFunction;
 
 class UploadController extends Controller
 {
@@ -25,8 +26,7 @@ class UploadController extends Controller
         $curdir = getcwd();
         $serchdir = $curdir . "/../storage/app/uploads/" . $directory;
 
-        $path_check = preg_match('/(\.\.\/)/', $directory) ? 1 : 0;
-        if($path_check){ return "Directory Traversal measures"; }
+        SecurityFunction::directoryTraversalDetection($directory);
 
         /* # NOTE: シェルコマンドだと見栄えが悪いので未採用
         $exec_ls = "ls -l $serchdir";
@@ -57,9 +57,8 @@ class UploadController extends Controller
 
         $directory = $request->directory;
         $deploydir = "uploads/" . $directory;
- 
-        $path_check = preg_match('/(\.\.\/)/', $deploydir) ? 1 : 0;
-        if($path_check){ return "Directory Traversal measures"; }
+
+        SecurityFunction::directoryTraversalDetection($deploydir);
 
         foreach($files as $file){
 
