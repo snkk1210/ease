@@ -123,7 +123,7 @@ class Playbook extends Model
         $dhandle = opendir($repodir);
         if ($dhandle){
             while (false !== ($fname = readdir($dhandle))){
-                if ($fname != '.' && $fname != '..' && $fname != 'public' && $fname != '.gitignore'){
+                if ($fname != '.' && $fname != '..' && $fname != 'public' && $fname != '.gitignore' && $fname != 'uploads'){
                     $list[] = $fname;
                 }
             }

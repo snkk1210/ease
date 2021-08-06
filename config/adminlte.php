@@ -286,6 +286,13 @@ return [
             //'label'       => 4,
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Upload Files',
+            'url'         => 'upload',
+            'icon'        => 'far fa-fw fa-file',
+            //'label'       => 4,
+            'label_color' => 'success',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
