@@ -12,22 +12,24 @@
 @section('content')
     <p>Upload Files</p>
 
-    <form method="POST" action="/store" enctype="multipart/form-data">
+    <form method="POST" action="/store" enctype="multipart/form-data" id="upload-form">
+        <p id="upload-title">ファイルアップロード</p>
         @csrf
-        <td><input type="text" value="" name="directory" class="form-control" style="width:300px;" /></td>
+        <td><input type="text" value="" name="directory" class="form-control" id="upload-input" /></td>
         <input type="file" id="file" name="file[]" multiple>
-        <input type="submit" value="upload">
+        <input type="submit" value="upload" id="upload-button">
     </form>
 
-    <form method="POST" action="/show" enctype="multipart/form-data">
+    <form method="POST" action="/show" enctype="multipart/form-data" id="show-form">
+        <p id="show-title">ファイル確認</p>
         @csrf
-        <td><input type="text" value="" name="directory" class="form-control" style="width:300px;" /></td>
-        <input type="submit" value="ファイル表示">
+        <td><input type="text" value="" name="directory" class="form-control" id="show-input" /></td>
+        <input type="submit" value="ファイル表示" id="show-button">
     </form>
 
     @if(isset( $lists ))
     @foreach ($lists as $list)
-        <p>{!! nl2br(e($list)) !!}</p>
+        <p id="show-list">{!! nl2br(e($list)) !!}</p>
     @endforeach
     @endif
 
@@ -35,7 +37,7 @@
 
 <!-- 読み込ませるCSSを入力 -->
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/upload.css">
 @stop
 
 <!-- 読み込ませるJSを入力 -->
