@@ -36,6 +36,7 @@ class UploadController extends Controller
         */
 
         $dhandle = opendir($serchdir);
+        $lists[] = "";
         if ($dhandle){
             while (false !== ($fname = readdir($dhandle))){
                 if ($fname != '.' && $fname != '..'){
