@@ -1,0 +1,52 @@
+#upload-form {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+#upload-title {
+    font-size: 20px;
+    position: relative;
+    right: 15px;
+}
+
+#upload-input {
+    width: 500px;
+    box-shadow: 0 0 5px 0 rgba(255,153,0,1);
+    border: 2px solid #FFF !important;
+    outline: 0;
+}
+
+#upload-button {
+    position: relative;
+    left: 165px;
+}
+
+#show-form {
+    position: relative;
+    top: 50px;
+    left: 20px;
+}
+
+#show-title {
+    font-size: 20px;
+    position: relative;
+    right: 15px;
+}
+
+#show-input {
+    width: 500px;
+    box-shadow: 0 0 5px 0 rgb(55, 173, 241);
+    border: 2px solid #FFF !important;
+    outline: 0;
+}
+
+#show-button {
+    /* box-shadow: 3px 3px 3px gray; */
+}
+
+#show-list {
+    position: relative;
+    top: 80px;
+    left: 20px;
+}
