@@ -10,7 +10,7 @@
 
 <!-- ページの内容を入力 -->
 @section('content')
-    <p>← 【Make Playbook】 でplaybookを作成してね</p>
+    <p>← 【 Make Playbook 】 でplaybookを作成してね</p>
     <footer>
 　      <p>&copy; keisuke sanuki. 2021. version: 1.1.0</p> 
     </footer>
