@@ -16,7 +16,7 @@
         <p id="upload-title">ファイルアップロード</p>
         @csrf
         <td><input type="text" value="" name="directory" class="form-control" id="upload-input" /></td>
-        <input type="file" id="file" name="file[]" multiple>
+        <input type="file" id="file" name="file[]" onchange="selectFile()" multiple>
         <input type="submit" value="upload" id="upload-button">
     </form>
 
@@ -42,5 +42,17 @@
 
 <!-- 読み込ませるJSを入力 -->
 @section('js')
-    <script></script>
+    <script>
+        window.onload = function(){
+            document.getElementById("upload-button").disabled = true;
+        }
+
+        function selectFile(){
+            if (document.getElementById("file").value === ""){
+                document.getElementById("upload-button").disabled = true;
+            } else {
+                document.getElementById("upload-button").disabled = false;
+            }
+        }
+    </script>
 @stop

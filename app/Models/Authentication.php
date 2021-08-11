@@ -68,5 +68,16 @@ class Authentication extends Model
         }
     }
 
+    /**
+     * ファイルアップロード前の認証
+     * @param $user_id, $playbook_id
+     */
+    public static function authUpload($user_id, $auth_id){
+        if ($user_id->role == 15){
+            abort(403, 'Forbidden');
+            header('Location: /home', true, 403);
+            exit();
+        }
+    }
 
 }

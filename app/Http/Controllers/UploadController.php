@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lib\SecurityFunction;
+use App\Models\Authentication;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Playbook;
 
 class UploadController extends Controller
 {
@@ -55,6 +58,11 @@ class UploadController extends Controller
      *
      */
     public function store(Request $request){
+
+        $id = Auth::id();
+        $target_data = Playbook::where('id', $id)->get();
+        $user = Auth::user();
+        Authentication::authUpload($user, $target_data);
 
         $files = $request->file('file');
 
