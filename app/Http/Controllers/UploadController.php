@@ -11,7 +11,7 @@ use App\Models\Playbook;
 class UploadController extends Controller
 {
     /**
-     * 
+     * ファイルアップロードのフォームを表示
      */
     public function index(){
         //
@@ -19,7 +19,9 @@ class UploadController extends Controller
     }
 
     /**
+     * 入力されたディレクトリ内の情報を表示
      * 
+     * @param  Request  $request
      */
     public function show(Request $request){
         
@@ -55,7 +57,9 @@ class UploadController extends Controller
     }
 
     /**
-     *
+     * アップロードされたファイルを保存
+     * 
+     * @param  Request  $request
      */
     public function store(Request $request){
 
