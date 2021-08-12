@@ -14,8 +14,8 @@
 
     <table>
         <tr>
-            <th>PlayBook</th>
-            <th>アーカイブ</th>
+            <th>Your Playbook</th>
+            <th>Your Archive</th>
         </tr>
         <tr>
             <td><a href="/playbooks">{{ $enable_playbook_num }}</a></td>
@@ -24,7 +24,7 @@
     </table>
 
     <footer>
-　      <p>&copy; keisuke sanuki. 2021. version: 1.1.0</p> 
+　      <p>&copy; keisuke sanuki. 2021. version: 1.1.1</p> 
     </footer>
 @stop
 
