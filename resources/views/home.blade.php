@@ -10,7 +10,19 @@
 
 <!-- ページの内容を入力 -->
 @section('content')
-    <p>← 【 Make Playbook 】 でplaybookを作成してね</p>
+    <p>こんにちは。{{ $user_name }} さん</p>
+
+    <table>
+        <tr>
+            <th>PlayBook</th>
+            <th>アーカイブ</th>
+        </tr>
+        <tr>
+            <td><a href="/playbooks">{{ $enable_playbook_num }}</a></td>
+            <td><a href="/archives">{{ $disable_playbook_num }}</a></td>
+        </tr>
+    </table>
+
     <footer>
 　      <p>&copy; keisuke sanuki. 2021. version: 1.1.0</p> 
     </footer>
