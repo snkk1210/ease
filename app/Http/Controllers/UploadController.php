@@ -80,6 +80,7 @@ class UploadController extends Controller
             $fname = $file->getClientOriginalName();
             $file->storeAS($deploydir,$fname);
 
+            chmod("../storage/app/" . $deploydir . "/" . $fname, 0600);
         }
 
         return view('upload');
