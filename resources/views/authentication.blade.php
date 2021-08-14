@@ -36,7 +36,7 @@ $('#playbookTable').DataTable({
     <thead>
         <tr>
             <th class="text-nowrap" width="25%">認証名</th>
-            <th class="text-nowrap" width="30%">owner</th>
+            <th class="text-nowrap" width="30%">Owner</th>
             <th class="text-nowrap" width="10%">編集</th>
         </tr>
     </thead>
