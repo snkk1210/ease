@@ -35,9 +35,9 @@ $('#playbookTable').DataTable({
     <table id="playbookTable" class="table table-striped table-bordered table-sm" width="100%">
     <thead>
         <tr>
-            <th class="text-nowrap" width="25%">playbook</th>
-            <th class="text-nowrap" width="25%">repository</th>
-            <th class="text-nowrap" width="20%">owner</th>
+            <th class="text-nowrap" width="25%">Playbook</th>
+            <th class="text-nowrap" width="25%">Repository</th>
+            <th class="text-nowrap" width="20%">Owner</th>
             <th class="text-nowrap" width="10%">アーカイブ</th>
             <th class="text-nowrap" width="10%">編集</th>
             <th class="text-nowrap" width="10%">実行</th>
