@@ -19,8 +19,8 @@
                         <table class="table table-striped table-bordered table-sm">
                         <thead class="thead-dark">
                             <tr>
-                            <th class="text-nowrap">playbook</th>
-                            <th class="text-nowrap">repository</th>
+                            <th class="text-nowrap">Playbook名</th>
+                            <th class="text-nowrap">リポジトリ</th>
                             <th class="text-nowrap">認証</th>
                             </tr>
                         </thead>

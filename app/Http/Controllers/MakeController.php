@@ -82,7 +82,7 @@ class MakeController extends Controller
         # 論理削除のフラグを更新
         Playbook::where('id', $id)->update(['enable_flag' => 1]);
 
-        return view('/home');
+        return redirect('/playbooks');
     }
 
     /**
@@ -103,7 +103,7 @@ class MakeController extends Controller
         # 論理削除のフラグを更新
         Playbook::where('id', $id)->update(['enable_flag' => 0]);
 
-        return view('/home');
+        return redirect('/archives');
     }
 
 
