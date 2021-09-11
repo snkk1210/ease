@@ -96,10 +96,8 @@ chown [webユーザ]:[webグループ] default-CentOS7/group_vars
 ### 8.初期ユーザ作成
 
 ```
-mysql -u root -p
-use [スキーマ];
-INSERT INTO `users` (name, email, password, role)VALUES ('admin','admin@localhost','$2y$10$/pJ6PJyEg9/7uos9dkPqPehVH5XpD.cAxopu8Kt4x1N2a.4yloKVS', 1);
-INSERT INTO `users` (name, email, password, role)VALUES ('read-only','read@localhost','$2y$10$/pJ6PJyEg9/7uos9dkPqPehVH5XpD.cAxopu8Kt4x1N2a.4yloKVS', 15);
+cd ../../
+php artisan db:seed
 ```
 
 ### 9.初期ユーザでログイン
