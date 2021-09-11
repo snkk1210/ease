@@ -96,6 +96,7 @@ chown [webユーザ]:[webグループ] default-CentOS7/group_vars
 ### 8.初期ユーザ作成
 
 ```
+cd ../../
 php artisan db:seed
 ```
 
