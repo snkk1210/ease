@@ -24,7 +24,7 @@
     </table>
 
     <footer>
-　      <p>&copy; keisuke sanuki. 2021. version: 1.1.2</p> 
+　      <p>&copy; keisuke sanuki. 2021. version: 1.1.3</p> 
     </footer>
 @stop
 
