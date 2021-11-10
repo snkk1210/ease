@@ -44,7 +44,7 @@ jQuery(function($){
                             <form action="/edit_auth" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="Edit" type="submit" value="Edit" class="btn btn-success">
+                                <input title="Edit" type="submit" value="Edit" class="btn btn-success tablebtn">
                                 <input type="hidden" name="id" value="{{ $auth->authentications_id }}">
                             </form>
                         </td>
@@ -57,7 +57,7 @@ jQuery(function($){
 @stop
 
 @section('css')
-
+    <link rel="stylesheet" href="/css/btn.css">
 @stop
 
 @section('js')
