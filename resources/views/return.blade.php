@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/css/make.css">
 @stop
 
-<!-- 読み込ませるJSを入力 -->
 @section('js')
 
 @stop
