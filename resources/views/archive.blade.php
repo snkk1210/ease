@@ -30,11 +30,11 @@ jQuery(function($){
         <table id="playbookTable" class="table table-striped table-bordered table-sm" width="100%">
             <thead>
                 <tr>
-                    <th class="text-nowrap" width="25%">playbook</th>
-                    <th class="text-nowrap" width="25%">repository</th>
-                    <th class="text-nowrap" width="20%">owner</th>
-                    <th class="text-nowrap" width="16%">アーカイブ</th>
-                    <th class="text-nowrap" width="15%">削除</th>
+                    <th class="text-nowrap" width="25%">Playbook</th>
+                    <th class="text-nowrap" width="25%">Repository</th>
+                    <th class="text-nowrap" width="20%">Owner</th>
+                    <th class="text-nowrap" width="15%">Active</th>
+                    <th class="text-nowrap" width="15%">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@ jQuery(function($){
                             <form action="/enable_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="元に戻す" type="submit" value="元に戻す" class="btn btn-warning">
+                                <input title="Act" type="submit" value="Act" class="btn btn-warning">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -55,7 +55,7 @@ jQuery(function($){
                             <form action="/remove_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="削除" type="submit" value="削除" class="btn btn-danger" onClick="delete_alert(event);return false;">
+                                <input title="Del" type="submit" value="Del" class="btn btn-danger" onClick="delete_alert(event);return false;">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
