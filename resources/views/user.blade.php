@@ -30,10 +30,10 @@ jQuery(function($){
         <table id="userTable" class="table table-striped table-bordered table-sm" width="100%">
             <thead>
                 <tr>
-                    <th class="text-nowrap" width="40%">ユーザ</th>
-                    <th class="text-nowrap" width="40%">メールアドレス</th>
-                    <th class="text-nowrap" width="10%">役割</th>
-                    <th class="text-nowrap" width="10%">編集</th>
+                    <th class="text-nowrap" width="40%">User</th>
+                    <th class="text-nowrap" width="40%">Mail</th>
+                    <th class="text-nowrap" width="10%">Role</th>
+                    <th class="text-nowrap" width="10%">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,7 +46,7 @@ jQuery(function($){
                             <form action="/edit_user" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="編集" type="submit" value="編集" class="btn btn-success">
+                                <input title="Edit" type="submit" value="Edit" class="btn btn-success">
                                 <input type="hidden" name="id" value="{{ $user->id }}">
                             </form>
                         </td>

@@ -16,8 +16,8 @@
             <table class="table table-striped table-bordered table-sm">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-nowrap">ユーザ</th>
-                        <th class="text-nowrap">役割</th>
+                        <th class="text-nowrap">User</th>
+                        <th class="text-nowrap">Role</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,18 +27,19 @@
             </table>
         </div>
         <input type="hidden" name="id" value="<?php echo $edit_user['id'] ?>">
-        <input type="submit" value="更新" class="btn btn-success">
+        <input type="submit" value="Update" class="btn btn-success opbtn">
     </form>
     <form action="/remove_user" method="POST">
         @csrf
         @method('POST')
         <input type="hidden" name="id" value="<?php echo $edit_user['id'] ?>">
-        <input type="submit" value="削除" class="btn btn-danger" onClick="delete_alert(event);return false;">
+        <input type="submit" value="Delete" class="btn btn-danger opbtn" onClick="delete_alert(event);return false;">
     </form>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/make.css">
+    <link rel="stylesheet" href="/css/btn.css">
 @stop
 
 @section('js')
