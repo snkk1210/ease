@@ -33,9 +33,9 @@ jQuery(function($){
                     <th class="text-nowrap" width="25%">Playbook</th>
                     <th class="text-nowrap" width="25%">Repository</th>
                     <th class="text-nowrap" width="20%">Owner</th>
-                    <th class="text-nowrap" width="10%">アーカイブ</th>
-                    <th class="text-nowrap" width="10%">編集</th>
-                    <th class="text-nowrap" width="10%">実行</th>
+                    <th class="text-nowrap" width="10%">Archive</th>
+                    <th class="text-nowrap" width="10%">Edit</th>
+                    <th class="text-nowrap" width="10%">Run</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +48,7 @@ jQuery(function($){
                             <form action="/disable_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="アーカイブ" type="submit" value="アーカイブ" class="btn btn-warning">
+                                <input title="Archive" type="submit" value="Archive" class="btn btn-warning">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -56,7 +56,7 @@ jQuery(function($){
                             <form action="/edit_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="編集" type="submit" value="編集" class="btn btn-success">
+                                <input title="Edit" type="submit" value="Edit" class="btn btn-success">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -64,7 +64,7 @@ jQuery(function($){
                             <form action="/exec_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="実行" type="submit" value="実行" class="btn btn-danger">
+                                <input title="Run" type="submit" value="Run" class="btn btn-danger">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
