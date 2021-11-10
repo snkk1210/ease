@@ -18,9 +18,9 @@
             <table class="table table-striped table-bordered table-sm">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-nowrap">Playbook名</th>
-                        <th class="text-nowrap">リポジトリ</th>
-                        <th class="text-nowrap">認証</th>
+                        <th class="text-nowrap">Playbook</th>
+                        <th class="text-nowrap">Repository</th>
+                        <th class="text-nowrap">Auth</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,22 +42,23 @@
                 </tbody>
             </table>
         </div>
-        <label for="textarea1">private_key:</label>
+        <label for="textarea1">private_key :</label>
         <textarea class="form-control" rows="10" name="private_key" class="form-control"></textarea>
-        <label for="textarea1">inventory:</label>
+        <label for="textarea1">inventory :</label>
         <textarea class="form-control" rows="10" name="inventory" class="form-control"></textarea>
-        <label for="textarea1">vars:</label>
+        <label for="textarea1">vars :</label>
         <textarea class="form-control" rows="10" name="vars" class="form-control" id="var-editor"></textarea>
-        <label for="textarea1">main:</label>
+        <label for="textarea1">main :</label>
         <textarea class="form-control" rows="10" name="main" class="form-control" id="txt-editor"></textarea>
         <input type="hidden" name="owner_id" value="{{ $owner_id }}">
-        <input type="submit" value="作成" class="btn btn-success">
+        <input type="submit" value="作成" class="btn btn-success opbtn">
     </form>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="lib/codemirror.css">
     <link rel="stylesheet" href="/css/make.css">
+    <link rel="stylesheet" href="/css/btn.css">
 @stop
 
 @section('js')
