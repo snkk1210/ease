@@ -46,7 +46,7 @@ jQuery(function($){
                             <form action="/edit_user" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="Edit" type="submit" value="Edit" class="btn btn-success">
+                                <input title="Edit" type="submit" value="Edit" class="btn btn-success tablebtn">
                                 <input type="hidden" name="id" value="{{ $user->id }}">
                             </form>
                         </td>
@@ -59,7 +59,7 @@ jQuery(function($){
 @stop
 
 @section('css')
-
+    <link rel="stylesheet" href="/css/btn.css">
 @stop
 
 @section('js')

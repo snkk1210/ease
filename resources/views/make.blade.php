@@ -51,7 +51,7 @@
         <label for="textarea1">main :</label>
         <textarea class="form-control" rows="10" name="main" class="form-control" id="txt-editor"></textarea>
         <input type="hidden" name="owner_id" value="{{ $owner_id }}">
-        <input type="submit" value="作成" class="btn btn-success opbtn">
+        <input type="submit" value="Create" class="btn btn-success opbtn">
     </form>
 @stop
 

@@ -48,7 +48,7 @@ jQuery(function($){
                             <form action="/disable_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="Archive" type="submit" value="Archive" class="btn btn-warning">
+                                <input title="Archive" type="submit" value="Archive" class="btn btn-warning tablebtn">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -56,7 +56,7 @@ jQuery(function($){
                             <form action="/edit_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="Edit" type="submit" value="Edit" class="btn btn-success">
+                                <input title="Edit" type="submit" value="Edit" class="btn btn-success tablebtn">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -64,7 +64,7 @@ jQuery(function($){
                             <form action="/exec_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="Run" type="submit" value="Run" class="btn btn-danger">
+                                <input title="Run" type="submit" value="Run" class="btn btn-danger tablebtn">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -77,7 +77,7 @@ jQuery(function($){
 @stop
 
 @section('css')
-
+    <link rel="stylesheet" href="/css/btn.css">
 @stop
 
 @section('js')
