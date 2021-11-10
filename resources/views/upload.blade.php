@@ -10,18 +10,18 @@
     <p>Upload Files</p>
 
     <form method="POST" action="/store" enctype="multipart/form-data" id="upload-form">
-        <p id="upload-title">ファイルアップロード</p>
+        <p id="upload-title">File Upload</p>
         @csrf
         <td><input type="text" value="" name="directory" class="form-control" id="upload-input" /></td>
         <input type="file" id="file" name="file[]" onchange="selectFile()" multiple>
-        <input type="submit" value="upload" id="upload-button">
+        <input type="submit" value="Upload" id="upload-button">
     </form>
 
     <form method="POST" action="/show" enctype="multipart/form-data" id="show-form">
-        <p id="show-title">ファイル確認</p>
+        <p id="show-title">File Check</p>
         @csrf
         <td><input type="text" value="" name="directory" class="form-control" id="show-input" /></td>
-        <input type="submit" value="ファイル表示" id="show-button">
+        <input type="submit" value="Check" id="show-button">
     </form>
 
     @if(isset( $lists ))
