@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>こんにちは。{{ $user_name }} さん</p>
+    <p>Hello. {{ $user_name }} </p>
 
     <table>
         <tr>
