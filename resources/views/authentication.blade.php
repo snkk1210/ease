@@ -30,9 +30,9 @@ jQuery(function($){
         <table id="playbookTable" class="table table-striped table-bordered table-sm" width="100%">
             <thead>
                 <tr>
-                    <th class="text-nowrap" width="25%">認証名</th>
+                    <th class="text-nowrap" width="25%">Auth</th>
                     <th class="text-nowrap" width="30%">Owner</th>
-                    <th class="text-nowrap" width="10%">編集</th>
+                    <th class="text-nowrap" width="10%">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +44,7 @@ jQuery(function($){
                             <form action="/edit_auth" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="編集" type="submit" value="編集" class="btn btn-success">
+                                <input title="Edit" type="submit" value="Edit" class="btn btn-success">
                                 <input type="hidden" name="id" value="{{ $auth->authentications_id }}">
                             </form>
                         </td>
