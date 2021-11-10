@@ -47,7 +47,7 @@ jQuery(function($){
                             <form action="/enable_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="Act" type="submit" value="Act" class="btn btn-warning tablebtn">
+                                <input title="Active" type="submit" value="Active" class="btn btn-warning tablebtn">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
@@ -55,7 +55,7 @@ jQuery(function($){
                             <form action="/remove_playbook" method="POST">
                                 @csrf
                                 @method('POST')
-                                <input title="Del" type="submit" value="Del" class="btn btn-danger tablebtn" onClick="delete_alert(event);return false;">
+                                <input title="Delete" type="submit" value="Delete" class="btn btn-danger tablebtn" onClick="delete_alert(event);return false;">
                                 <input type="hidden" name="id" value="{{ $playbook->playbooks_id }}">
                             </form>
                         </td>
