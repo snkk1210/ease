@@ -16,8 +16,8 @@
             <table class="table table-striped table-bordered table-sm">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-nowrap">認証名</th>
-                        <th class="text-nowrap">パスワード</th>
+                        <th class="text-nowrap">Auth</th>
+                        <th class="text-nowrap">Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,21 +26,22 @@
                 </tbody>
             </table>
         </div>
-        <label for="textarea1">private_key:</label>
+        <label for="textarea1">private_key :</label>
         <textarea class="form-control" rows="10" name="ssh_key" class="form-control"><?php echo $edit_auth['ssh_key'] ?></textarea>
         <input type="hidden" name="id" value="<?php echo $edit_auth['id'] ?>">
-        <input type="submit" value="更新" class="btn btn-success">
+        <input type="submit" value="Update" class="btn btn-success opbtn">
     </form>
     <form action="/remove_auth" method="POST">
         @csrf
         @method('POST')
         <input type="hidden" name="id" value="<?php echo $edit_auth['id'] ?>">
-        <input type="submit" value="削除" class="btn btn-danger" onClick="delete_alert(event);return false;">
+        <input type="submit" value="Delete" class="btn btn-danger opbtn" onClick="delete_alert(event);return false;">
     </form>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/make.css">
+    <link rel="stylesheet" href="/css/btn.css">
 @stop
 
 @section('js')
