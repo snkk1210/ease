@@ -16,8 +16,8 @@
             <table class="table table-striped table-bordered table-sm">
                 <thead class="thead-dark">
                     <tr>
-                        <th class="text-nowrap">認証名</th>
-                        <th class="text-nowrap">パスワード</th>
+                        <th class="text-nowrap">Auth</th>
+                        <th class="text-nowrap">Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,15 +26,16 @@
                 </tbody>
             </table>
         </div>
-        <label for="textarea1">private_key:</label>
+        <label for="textarea1">private_key :</label>
         <textarea class="form-control" rows="10" name="ssh_key" class="form-control"></textarea>
         <input type="hidden" name="a_owner_id" value="{{ $a_owner_id }}">
-        <input type="submit" value="作成" class="btn btn-success">
+        <input type="submit" value="Create" class="btn btn-success opbtn">
     </form>
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/make.css">
+    <link rel="stylesheet" href="/css/btn.css">
 @stop
 
 @section('js')
