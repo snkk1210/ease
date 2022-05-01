@@ -91,6 +91,10 @@ cd storage/app
 git clone https://github.com/keisukesanuki/default-CentOS7.git
 chown [webユーザ]:[webグループ] default-CentOS7
 chown [webユーザ]:[webグループ] default-CentOS7/group_vars
+
+git clone https://github.com/keisukesanuki/default-almalinux8.git
+chown [webユーザ]:[webグループ] default-almalinux8
+chown [webユーザ]:[webグループ] default-almalinux8/group_vars
 ```
 
 ### 8.初期ユーザ作成
@@ -115,7 +119,7 @@ PASSWORD: easeease
 ## 補足
 
 Ansible 実行時に WEB サーバがタイムアウトしないよう 適宜 WEBサーバの設定を調整して下さい。  
-※ Nginx であれば、下記のファイルを参考下さい。
+※ Nginx であれば、下記のファイルを参照下さい。
 
 ```
 docker/nginx/ease.conf
