@@ -2,14 +2,14 @@
 
 ## これは何？
 
-Ansible の playbook を WEB上で管理/実行するツールです。  
-※詳細は下記参照  
+Ansible の Playbook を WEB上で管理/実行するツールです。  
+※ 詳細は下記参照  
 https://ease-wiki.fingerease.work
 
 ## できること
 
 - ユーザ認証
-- playbook 作成/管理
+- Playbook 作成/管理
 - Ansible 実行
 
 ## 動作環境
@@ -33,21 +33,21 @@ Laravel Framework 8.19.0
 
 ## 導入方法
 
-### 1.ソースのダウンロード
+### 1. ソースのダウンロード
 
 ```
 cd [ドキュメントルート]
 git clone https://github.com/keisukesanuki/ease.git
 ```
 
-### 2.依存パッケージのダウンロード
+### 2. 依存パッケージのダウンロード
 
 ```
 cd ease
 composer install
 ```
 
-### 3.環境変数の調整
+### 3. 環境変数の調整
 
 ```
 cp -p .env.example .env
@@ -61,50 +61,54 @@ CW_ENDPOINT=""
 =====================
 ```
 
-※ Ansible 実行時に ChatWork への通知が必要であれば、下記2つを定義して下さい。
+※ Ansible 実行時に Chatwork への通知が必要であれば、下記2つを定義して下さい。
 
-CW_TOKEN → ChatWork トークン  
+CW_TOKEN → Chatwork トークン  
 CW_ENDPOINT → 通知先エンドポイント 
 
-### 4.マイグレーション
+### 4. マイグレーション
 
 ```
 php artisan migrate
 ```
 
-### 5.APP_KEY の生成
+### 5. APP_KEY の生成
 
 ```
 php artisan key:generate
 ```
 
-### 6.権限変更
+### 6. 権限変更
 
 ```
 chmod -R 777 storage
 ```
 
-### 7.デフォルト playbook 取得
+### 7. デフォルト Playbook 取得
 
 ```
 cd storage/app
-git clone https://github.com/keisukesanuki/default-CentOS7.git
+git clone https://github.com/keisukesanuki/default-centos7.git
 chown [webユーザ]:[webグループ] default-CentOS7
 chown [webユーザ]:[webグループ] default-CentOS7/group_vars
 
 git clone https://github.com/keisukesanuki/default-almalinux8.git
 chown [webユーザ]:[webグループ] default-almalinux8
 chown [webユーザ]:[webグループ] default-almalinux8/group_vars
+
+git clone https://github.com/keisukesanuki/jmeter-MS.git
+chown [webユーザ]:[webグループ] jmeter-MS
+chown [webユーザ]:[webグループ] jmeter-MS/group_vars
 ```
 
-### 8.初期ユーザ作成
+### 8. 初期ユーザ作成
 
 ```
 cd ../../
 php artisan db:seed
 ```
 
-### 9.初期ユーザでログイン
+### 9. 初期ユーザでログイン
 - 管理者ユーザ
 ```
 ID: admin@localhost
